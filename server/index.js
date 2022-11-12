@@ -3,6 +3,7 @@ import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
+import postRoutes from "./routes/posts.js";
 // initialize express
 const app = express();
 //Using body-parser for app
@@ -24,3 +25,6 @@ mongoose
 		app.listen(PORT, () => console.log(`Server running on port: ${PORT}`));
 	})
 	.catch((err) => console.log(err.message));
+
+// Using routes for app
+app.use("/posts", postRoutes);
