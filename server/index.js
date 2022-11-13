@@ -3,7 +3,10 @@ import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
-import postRoutes from "./routes/users.js";
+import authRoutes from "./routes/auth.js";
+import usersRoutes from "./routes/users.js";
+import hotelsRoutes from "./routes/hotels.js";
+import roomsRoutes from "./routes/rooms.js";
 // initialize express
 const app = express();
 //Using body-parser for app
@@ -21,10 +24,15 @@ const URL = process.env.CONNECTION_URL;
 mongoose
 	.connect(URL)
 	.then(() => {
-		// Listening to the server
-		app.listen(PORT, () => console.log(`Server running on port: ${PORT}`));
+		console.log("Connected to MongoDB");
 	})
 	.catch((err) => console.log(err.message));
 
 // Using routes for app
-app.use("/posts", postRoutes);
+app.use("/server/auth", authRoutes);
+app.use("/server/users", usersRoutes);
+app.use("/server/hotels", hotelsRoutes);
+app.use("/server/rooms", roomsRoutes);
+
+// Listening to the server
+app.listen(PORT, () => console.log(`Server running on port: ${PORT}`));
