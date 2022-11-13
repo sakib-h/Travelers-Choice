@@ -1,8 +1,18 @@
+import React, { useEffect } from "react";
 import "./App.css";
 import memoriesImg from "./Images/memories.png";
 import Posts from "./Components/Posts/Posts";
 import Form from "./Components/Form/Form";
+// importing redux things
+import { useDispatch } from "react-redux";
+import { getPosts } from "./actions/posts";
 function App() {
+	const dispatch = useDispatch();
+
+	useEffect(() => {
+		dispatch(getPosts());
+	}, [dispatch]);
+
 	return (
 		<div className="App container">
 			<div className="app-bar static text-inherit ">
