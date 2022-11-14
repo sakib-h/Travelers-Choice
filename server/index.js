@@ -34,5 +34,13 @@ app.use("/server/users", usersRoutes);
 app.use("/server/hotels", hotelsRoutes);
 app.use("/server/rooms", roomsRoutes);
 
+// Handling Error
+app.use((err, req, res, next) => {
+	const status = err.statusCode || 500;
+	const message = err.message || "Something went wrong";
+	const data = err.data;
+	res.status(status).json({ message: message, data: data });
+});
+
 // Listening to the server
 app.listen(PORT, () => console.log(`Server running on port: ${PORT}`));
