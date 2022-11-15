@@ -1,5 +1,6 @@
 import User from "../models/User.js";
 import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
 // Register User
 export const register = async (req, res, next) => {
 	try {
@@ -36,12 +37,24 @@ export const login = async (req, res, next) => {
 			if (!checkPass) {
 				return next(createError(400, "Password Did not Match"));
 			} else {
+				const token = jwt.sign(
+					{
+						id: user._id,
+						isAdmin: user.isAdmin,
+					},
+					process.env.JWT_SECRET_KEY
+				);
+				console.log(token);
 				const userInfo = {
 					_id: user._id,
 					username: user.username,
 					email: user.email,
 				};
-				res.status(200).json(userInfo);
+				res.cookie("access_token", {
+					httpOnly: true,
+				})
+					.status(200)
+					.json(userInfo);
 			}
 		}
 	} catch (error) {

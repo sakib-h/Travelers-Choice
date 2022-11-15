@@ -7,6 +7,7 @@ import authRoutes from "./routes/auth.js";
 import usersRoutes from "./routes/users.js";
 import hotelsRoutes from "./routes/hotels.js";
 import roomsRoutes from "./routes/rooms.js";
+import cookieParser from "cookie-parser";
 // initialize express
 const app = express();
 //Using body-parser for app
@@ -14,6 +15,8 @@ app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 // Using cors for app
 app.use(cors());
+// Using Cookie Parser for app
+app.use(cookieParser());
 // Using dotenv for app
 dotenv.config();
 // Initialize port
