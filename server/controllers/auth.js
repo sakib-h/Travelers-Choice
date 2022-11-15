@@ -20,8 +20,30 @@ export const register = async (req, res, next) => {
 };
 
 // Login User
-export const login = (req, res, next) => {
+export const login = async (req, res, next) => {
+	const userName = req.body.username;
+	const password = req.body.password;
+
 	try {
+		const user = await User.findOne({ username: userName });
+		if (!user) {
+			return next(createError(404, "User not found"));
+		} else {
+			const checkPass = bcrypt.compareSync(
+				req.body.password,
+				user.password
+			);
+			if (!checkPass) {
+				return next(createError(400, "Password Did not Match"));
+			} else {
+				const userInfo = {
+					_id: user._id,
+					username: user.username,
+					email: user.email,
+				};
+				res.status(200).json(userInfo);
+			}
+		}
 	} catch (error) {
 		next(error);
 	}
