@@ -6,17 +6,3 @@
 @tailwind components;
 @tailwind utilities;
 
-/* img {
-	color: #00b7ff;
-} */
-@layer components {
-	.container {
-		@apply mx-auto;
-	}
-	.app-bar {
-		@apply rounded-[15px] my-[30px] py-3 flex flex-row justify-center items-center shadow-lg;
-	}
-	.card {
-		@apply relative flex flex-col justify-between rounded-[15px] h-[100%];
-	}
-}

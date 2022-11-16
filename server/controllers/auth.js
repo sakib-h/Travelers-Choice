@@ -1,6 +1,7 @@
 import User from "../models/User.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
+import { createError } from "../utils/error.js";
 // Register User
 export const register = async (req, res, next) => {
 	try {
@@ -44,13 +45,12 @@ export const login = async (req, res, next) => {
 					},
 					process.env.JWT_SECRET_KEY
 				);
-				console.log(token);
 				const userInfo = {
 					_id: user._id,
 					username: user.username,
 					email: user.email,
 				};
-				res.cookie("access_token", {
+				res.cookie("access_token", token, {
 					httpOnly: true,
 				})
 					.status(200)
