@@ -6,3 +6,14 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+	.container {
+		@apply w-[95%] md:w-[90%]  xl:w-[80%] 2xl:w-[70%]  mx-auto;
+	}
+	.headerListItem {
+		@apply flex items-center gap-2.5;
+	}
+	.headerListItem.active {
+		@apply border-2 border-white;
+	}
+}
