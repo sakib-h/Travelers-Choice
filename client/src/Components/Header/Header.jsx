@@ -27,6 +27,18 @@ const Header = () => {
 		},
 	]);
 
+	const handleOption = (name, operation) => {
+		setOptions((prev) => {
+			return {
+				...prev,
+				[name]:
+					operation === "increase"
+						? options[name] + 1
+						: options[name] - 1,
+			};
+		});
+	};
+
 	return (
 		<div className="bg-[#003580] text-white flex justify-center  ">
 			<div className="container pt-5 pb-[20px] relative">
@@ -107,33 +119,92 @@ const Header = () => {
 									<div className="optionItem">
 										<span>Adults</span>
 										<div className="optionCounter">
-											<button>-</button>
+											<button
+												className="counterButton"
+												onClick={() => {
+													handleOption(
+														"adult",
+														"decrease"
+													);
+												}}
+												disabled={options.adult <= 1}>
+												-
+											</button>
 											<span className="number">
 												{options.adult}
 											</span>
-											<button>+</button>
+											<button
+												className="counterButton"
+												onClick={() => {
+													handleOption(
+														"adult",
+														"increase"
+													);
+												}}>
+												+
+											</button>
 										</div>
 									</div>
 
 									<div className="optionItem">
 										<span>Children</span>
 										<div className="optionCounter">
-											<button className="">-</button>
+											<button
+												className="counterButton"
+												onClick={() => {
+													handleOption(
+														"children",
+														"decrease"
+													);
+												}}
+												disabled={
+													options.children <= 0
+												}>
+												-
+											</button>
 											<span className="number">
 												{options.children}
 											</span>
-											<button>+</button>
+											<button
+												className="counterButton"
+												onClick={() => {
+													handleOption(
+														"children",
+														"increase"
+													);
+												}}>
+												+
+											</button>
 										</div>
 									</div>
 
 									<div className="optionItem">
 										<span>Rooms</span>
 										<div className="optionCounter">
-											<button>-</button>
+											<button
+												className="counterButton"
+												onClick={() => {
+													handleOption(
+														"room",
+														"decrease"
+													);
+												}}
+												disabled={options.room <= 1}>
+												-
+											</button>
 											<span className="number">
 												{options.room}
 											</span>
-											<button>+</button>
+											<button
+												className="counterButton"
+												onClick={() => {
+													handleOption(
+														"room",
+														"increase"
+													);
+												}}>
+												+
+											</button>
 										</div>
 									</div>
 								</div>
