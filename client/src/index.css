@@ -19,7 +19,13 @@
 	.headerIcon {
 		@apply text-[lightgray] cursor-pointer;
 	}
-	.headerSearchItem{
+	.headerSearchItem {
 		@apply flex items-center gap-2.5;
+	}
+	.optionItem {
+		@apply flex w-[200px] justify-between text-[gray];
+	}
+	.optionCounter {
+		@apply flex items-center gap-2.5 text-[12px] text-black;
 	}
 }

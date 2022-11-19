@@ -13,6 +13,12 @@ import "react-date-range/dist/theme/default.css"; // theme css file
 import { format } from "date-fns";
 const Header = () => {
 	const [openDate, setOpenDate] = useState(false);
+	const [openOptions, setOpenOptions] = useState(false);
+	const [options, setOptions] = useState({
+		adult: 1,
+		children: 0,
+		room: 1,
+	});
 	const [date, setDate] = useState([
 		{
 			startDate: new Date(),
@@ -58,7 +64,7 @@ const Header = () => {
 						{" "}
 						Sign in / Register
 					</button>
-					<div className="h-[50px] bg-white border-[3px] border-[#febb02] flex items-center justify-between py-[10px] px-[20px] rounded-[5px] absolute bottom-[-25px] w-full">
+					<div className="h-[50px] bg-white  border-[3px] border-[#febb02] flex items-center justify-between py-[10px] px-[20px] rounded-[5px] absolute bottom-[-25px] w-full">
 						<div className="headerSearchItem">
 							<FaBed className="headerIcon" />
 							<input
@@ -66,7 +72,7 @@ const Header = () => {
 								name="destination"
 								id="destination"
 								placeholder="Where are you going?"
-								className="border-none outline-none "
+								className="border-none outline-none text-[gray]"
 							/>
 						</div>
 
@@ -96,10 +102,44 @@ const Header = () => {
 						<div className="headerSearchItem">
 							<FaMale className="headerIcon" />
 							<span className="text-[lightgray] cursor-pointer">
-								2 Adults 2 Children 1 room
+								{`${options.adult} Adults, ${options.children} Children, ${options.room} Room`}
+								<div className="absolute top-[50px] bg-white text-gray rounded-[5px] shadow-custom-shadow">
+									<div className="optionItem">
+										<span>Adults</span>
+										<div className="optionCounter">
+											<button>-</button>
+											<span className="number">
+												{options.adult}
+											</span>
+											<button>+</button>
+										</div>
+									</div>
+
+									<div className="optionItem">
+										<span>Children</span>
+										<div className="optionCounter">
+											<button className="">-</button>
+											<span className="number">
+												{options.children}
+											</span>
+											<button>+</button>
+										</div>
+									</div>
+
+									<div className="optionItem">
+										<span>Rooms</span>
+										<div className="optionCounter">
+											<button>-</button>
+											<span className="number">
+												{options.room}
+											</span>
+											<button>+</button>
+										</div>
+									</div>
+								</div>
 							</span>
 						</div>
-						<div className="headerSearchItem">
+						<div className="bg-[#0071c2] text-white font-[500] border-none outline-none px-4 py-2 cursor-pointer rounded-[5px]">
 							<button className="headerButton">Search</button>
 						</div>
 					</div>
