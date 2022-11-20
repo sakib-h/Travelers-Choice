@@ -23,12 +23,12 @@
 		@apply flex items-center gap-2.5;
 	}
 	.optionItem {
-		@apply flex w-[200px] justify-between text-[gray];
+		@apply flex w-[200px] justify-between items-center text-[gray] py-3;
 	}
 	.optionCounter {
-		@apply flex items-center gap-2.5 text-[18px] text-black mb-5;
+		@apply flex items-center gap-2.5 text-[18px] text-black;
 	}
 	.counterButton {
-		@apply w-[30px] h-[30px] border-[1px] border-[#0071c2] text-[#0071c2] rounded-[50%]  cursor-pointer bg-white;
+		@apply w-[30px] h-[30px] border-[1px] border-[#0071c2] text-[#0071c2] rounded-[50%]  cursor-pointer bg-white disabled:cursor-not-allowed;
 	}
 }

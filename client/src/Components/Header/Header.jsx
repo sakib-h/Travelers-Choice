@@ -113,9 +113,15 @@ const Header = () => {
 
 						<div className="headerSearchItem">
 							<FaMale className="headerIcon" />
-							<span className="text-[lightgray] cursor-pointer">
+							<span
+								className="text-[lightgray] cursor-pointer"
+								onClick={() => {
+									setOpenOptions((prev) => !prev);
+								}}>
 								{`${options.adult} Adults, ${options.children} Children, ${options.room} Room`}
-								<div className="absolute top-[50px] bg-white text-gray rounded-[5px] shadow-custom-shadow">
+							</span>
+							{openOptions && (
+								<div className="absolute top-[50px] bg-white text-gray rounded-[5px] shadow-custom-shadow px-5 ">
 									<div className="optionItem">
 										<span>Adults</span>
 										<div className="optionCounter">
@@ -208,7 +214,7 @@ const Header = () => {
 										</div>
 									</div>
 								</div>
-							</span>
+							)}
 						</div>
 						<div className="bg-[#0071c2] text-white font-[500] border-none outline-none px-4 py-2 cursor-pointer rounded-[5px]">
 							<button className="headerButton">Search</button>
