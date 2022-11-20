@@ -6,7 +6,7 @@ const List = () => {
 	return (
 		<section>
 			<Navbar />
-			<Header />
+			<Header type="list" />
 		</section>
 	);
 };
