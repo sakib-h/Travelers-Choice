@@ -43,8 +43,8 @@ const Header = ({ type }) => {
 		<div className="bg-[#003580] text-white flex justify-center  ">
 			<div className="container pt-5 pb-[20px] relative">
 				<div
-					className={`flex items-center gap-10 ${
-						type === "list" ? "mb-[20px]" : "mb-[50px]"
+					className={`flex justify-between lg:justify-start  items-center lg:gap-[40px]  ${
+						type === "list" ? "mb-[20px]" : "mb-[20px] lg:mb-[40px]"
 					}`}>
 					<div className="headerListItem active">
 						<FaBed className="headerIcon" />
