@@ -31,4 +31,20 @@
 	.counterButton {
 		@apply w-[30px] h-[30px] border-[1px] border-[#0071c2] text-[#0071c2] rounded-[50%]  cursor-pointer bg-white disabled:cursor-not-allowed;
 	}
+
+	.featuredImg {
+		@apply w-full h-[250px] object-cover brightness-75;
+	}
+	.featuredItem {
+		@apply relative text-white rounded-[10px] overflow-hidden;
+	}
+	.featuredTitles {
+		@apply absolute bottom-[20px] left-[20px];
+	}
+	.pListItem{
+		@apply rounded-[10px] overflow-hidden cursor-pointer
+	}
+	.pListImg{
+		@apply w-full h-[150px] object-cover
+	}
 }

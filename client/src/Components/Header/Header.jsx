@@ -114,7 +114,7 @@ const Header = ({ type }) => {
 										}
 										moveRangeOnFirstSelection={false}
 										ranges={date}
-										className="absolute top-[50px] "
+										className="absolute top-[50px] z-[2]"
 									/>
 								)}
 							</div>
@@ -129,7 +129,7 @@ const Header = ({ type }) => {
 									{`${options.adult} Adults, ${options.children} Children, ${options.room} Room`}
 								</span>
 								{openOptions && (
-									<div className="absolute top-[50px] bg-white text-gray rounded-[5px] shadow-custom-shadow px-5 ">
+									<div className="absolute top-[50px] bg-white text-gray rounded-[5px] shadow-custom-shadow px-5 z-[2]">
 										<div className="optionItem">
 											<span>Adults</span>
 											<div className="optionCounter">
