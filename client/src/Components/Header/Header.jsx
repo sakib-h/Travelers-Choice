@@ -83,21 +83,21 @@ const Header = ({ type }) => {
 						</button>
 						<div className="h-[50px]  bg-white   border-[3px] border-[#febb02] hidden lg:flex flex-row items-center justify-between  px-[20px] rounded-[5px] absolute bottom-[-25px] w-full gap-5">
 							<div className="headerSearchItem">
-								<FaBed className="searchIcon" />
+								<FaBed className="searchBarIcon" />
 								<input
 									type="text"
 									name="destination"
 									id="destination"
 									placeholder="Where are you going?"
-									className="border-none outline-none text-[gray]"
+									className="border-none outline-none text-[gray] placeholder:text-[gray]"
 								/>
 							</div>
 
 							<div className="headerSearchItem">
-								<FaCalendarDay className="searchIcon" />
+								<FaCalendarDay className="searchBarIcon" />
 								<span
 									onClick={() => setOpenDate((prev) => !prev)}
-									className="text-[lightgray] cursor-pointer">
+									className="text-[gray] cursor-pointer">
 									{`${format(
 										date[0].startDate,
 										"dd/MM/yyyy"
@@ -120,9 +120,9 @@ const Header = ({ type }) => {
 							</div>
 
 							<div className="headerSearchItem">
-								<FaMale className="searchIcon" />
+								<FaMale className="searchBarIcon" />
 								<span
-									className="text-[lightgray] cursor-pointer"
+									className="text-[gray] cursor-pointer"
 									onClick={() => {
 										setOpenOptions((prev) => !prev);
 									}}>

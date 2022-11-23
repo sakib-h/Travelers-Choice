@@ -19,11 +19,17 @@
 	.headerIcon {
 		@apply text-[lightgray] cursor-pointer;
 	}
-	.searchIcon {
+	.searchBarIcon {
+		@apply text-[#003580] cursor-pointer;
+	}
+	.navbarSearchIcon {
 		@apply text-[#003580] cursor-pointer;
 	}
 	.headerSearchItem {
-		@apply w-full px-0  flex items-center gap-2.5  lg:border-r-2;
+		@apply w-full   flex items-center gap-2.5  lg:border-r-2;
+	}
+	.navbarSearchItem {
+		@apply px-5 pb-1 flex items-center gap-2.5  ;
 	}
 	.optionItem {
 		@apply flex w-[200px] justify-between items-center text-[gray] py-3;
