@@ -77,7 +77,7 @@ const Header = ({ type }) => {
 							savings of 10% or more with a free Travelers Choice
 							account
 						</p>
-						<button className="bg-[#0071c2] text-white font-[500] border-none outline-none p-2.5 cursor-pointer mb-[50px]">
+						<button className="bg-[#0071c2] text-white font-[500] border-none outline-none p-2.5 cursor-pointer mb-[20px] lg:mb-[50px]">
 							{" "}
 							Sign in / Register
 						</button>

@@ -10,8 +10,10 @@ const PropertyList = () => {
 					className="pListImg"
 				/>
 				<div className="pListTitles">
-					<h1>Hotels</h1>
-					<h2>233 hotels</h2>
+					<h1 className="font-Source-Sans-Pro text-[18px] font-[600] ">
+						Hotels
+					</h1>
+					<h2 className="text-[14] font-[400]">233 hotels</h2>
 				</div>
 			</div>
 			<div className="pListItem">
@@ -21,8 +23,10 @@ const PropertyList = () => {
 					className="pListImg"
 				/>
 				<div className="pListTitles">
-					<h1>Apartments</h1>
-					<h2>2331 hotels</h2>
+					<h1 className="font-Source-Sans-Pro text-[18px] font-[600] ">
+						Apartments
+					</h1>
+					<h2 className="text-[14] font-[400]">2331 hotels</h2>
 				</div>
 			</div>
 			<div className="pListItem">
@@ -32,8 +36,10 @@ const PropertyList = () => {
 					className="pListImg"
 				/>
 				<div className="pListTitles">
-					<h1>Resorts</h1>
-					<h2>2331 hotels</h2>
+					<h1 className="font-Source-Sans-Pro text-[18px] font-[600] ">
+						Resorts
+					</h1>
+					<h2 className="text-[14] font-[400]">2331 hotels</h2>
 				</div>
 			</div>
 			<div className="pListItem">
@@ -43,8 +49,10 @@ const PropertyList = () => {
 					className="pListImg"
 				/>
 				<div className="pListTitles">
-					<h1>Villas</h1>
-					<h2>2331 hotels</h2>
+					<h1 className="font-Source-Sans-Pro text-[18px] font-[600] ">
+						Villas
+					</h1>
+					<h2 className="text-[14] font-[400]">2331 hotels</h2>
 				</div>
 			</div>
 			<div className="pListItem">
@@ -54,8 +62,10 @@ const PropertyList = () => {
 					className="pListImg"
 				/>
 				<div className="pListTitles">
-					<h1>Cabins</h1>
-					<h2>2331 hotels</h2>
+					<h1 className="font-Source-Sans-Pro text-[18px] font-[600] ">
+						Cabins
+					</h1>
+					<h2 className="text-[14] font-[400]">2331 hotels</h2>
 				</div>
 			</div>
 		</div>
