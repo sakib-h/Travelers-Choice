@@ -10,6 +10,8 @@
 	.container {
 		@apply w-[90%] md:w-[80%]  xl:w-[70%] 2xl:w-[65%]  mx-auto;
 	}
+
+	/* Header */
 	.headerListItem {
 		@apply flex flex-col  lg:flex-row items-center lg:gap-2.5;
 	}
@@ -19,6 +21,8 @@
 	.headerIcon {
 		@apply text-[lightgray] cursor-pointer;
 	}
+
+	/* Search Bar */
 	.searchBarIcon {
 		@apply text-[#003580] cursor-pointer;
 	}
@@ -41,8 +45,10 @@
 		@apply w-[30px] h-[30px] border-[1px] border-[#0071c2] text-[#0071c2] rounded-[50%]  cursor-pointer bg-white disabled:cursor-not-allowed;
 	}
 
+	/* Featured */
+
 	.featuredImg {
-		@apply w-full h-[350px] object-cover brightness-75 rounded-[10px];
+		@apply w-full h-[250px] object-cover brightness-75 rounded-[10px];
 	}
 	.featuredItem {
 		@apply relative text-white  overflow-hidden;
@@ -50,17 +56,42 @@
 	.featuredTitles {
 		@apply absolute bottom-[20px] left-[20px];
 	}
+
+	/* Featured Properties */
 	.pListItem {
 		@apply flex-1 overflow-hidden cursor-pointer;
 	}
 	.pListImg {
-		@apply w-full h-[150px] object-cover rounded-[10px];
+		@apply w-full h-[150px] object-cover rounded-[10px] mb-2;
 	}
 
 	.fpItem {
-		@apply flex-1 gap-[10px];
+		@apply flex flex-col gap-[5px];
 	}
 	.fpImg {
 		@apply w-full h-[150px] object-cover rounded-[10px];
+	}
+	.fpName {
+		@apply font-Source-Sans-Pro text-[16px] font-[600];
+	}
+	.fpCity {
+		@apply font-[400];
+	}
+	.fpPrice {
+		@apply font-[600];
+	}
+	.fpRating > button {
+		@apply bg-[#003580] text-white font-bold py-1 px-2 border-none outline-none rounded-md mr-2;
+	}
+	.fpRating > span {
+		@apply text-[14px];
+	}
+
+	/* mail List */
+	.mailInput {
+		@apply w-[300px]  px-[10px] py-[5px] border-none outline-none mr-2 rounded-[5px] text-[#003580];
+	}
+	.subscribeButton {
+		@apply bg-[#0071c2]  px-[10px] py-[5px] text-white font-[500] rounded-[5px] cursor-pointer;
 	}
 }
