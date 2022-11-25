@@ -2,7 +2,7 @@ import React from "react";
 
 const PropertyList = () => {
 	return (
-		<div className="container grid grid-cols-2 lg:grid-cols-5 gap-[15px]">
+		<div className="container grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[15px]">
 			<div className="pListItem">
 				<img
 					src="https://cf.bstatic.com/xdata/images/xphoto/square300/57584488.webp?k=bf724e4e9b9b75480bbe7fc675460a089ba6414fe4693b83ea3fdd8e938832a6&o="

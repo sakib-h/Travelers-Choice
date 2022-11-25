@@ -2,7 +2,7 @@ import React from "react";
 
 const Featured = () => {
 	return (
-		<div className="container grid grid-cols-1 lg:grid-cols-3 gap-[25px] z-[1]">
+		<div className="container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[25px] z-[1]">
 			<div className="featuredItem">
 				<img
 					src="https://cf.bstatic.com/xdata/images/city/max500/957801.webp?k=a969e39bcd40cdcc21786ba92826063e3cb09bf307bcfeac2aa392b838e9b7a5&o="

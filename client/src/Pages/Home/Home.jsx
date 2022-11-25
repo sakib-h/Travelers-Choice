@@ -1,4 +1,5 @@
 import Featured from "../../Components/Featured/Featured";
+import FeaturedProperties from "../../Components/FeaturedProperties/FeaturedProperties";
 import Header from "../../Components/Header/Header";
 import Navbar from "../../Components/Navbar/Navbar";
 import PropertyList from "../../Components/PropertyList/PropertyList";
@@ -14,6 +15,10 @@ const Home = () => {
 					Browse by Property type
 				</h1>
 				<PropertyList />
+				<h1 className="container text-[20px] font-Source-Sans-Pro font-[700]">
+					Homes guests love
+				</h1>
+				<FeaturedProperties />
 			</div>
 		</section>
 	);
