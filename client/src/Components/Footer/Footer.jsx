@@ -3,7 +3,7 @@ import React from "react";
 const Footer = () => {
 	return (
 		<footer className="container mb-[50px]">
-			<div className="w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10 mb-5">
+			<div className="w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10 mb-10">
 				<ul className="fList">
 					<li className="fListItem">Countries</li>
 					<li className="fListItem">Regions</li>
@@ -44,7 +44,9 @@ const Footer = () => {
 					<li className="fListItem">Terms & conditions</li>
 				</ul>
 			</div>
-			<div>Copyright © 2022 - Traveler Choice</div>
+			<div className=" text-[#003580] ">
+				Copyright © 2022 - Traveler Choice
+			</div>
 		</footer>
 	);
 };

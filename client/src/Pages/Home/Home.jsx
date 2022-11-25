@@ -13,11 +13,11 @@ const Home = () => {
 			<Header />
 			<div className="homeContainer mt-[50px] flex flex-col items-center gap-[30px]">
 				<Featured />
-				<h1 className="container text-[20px] font-Source-Sans-Pro font-[700]">
+				<h1 className="container text-[18px] font-Source-Sans-Pro font-[700]">
 					Browse by Property type
 				</h1>
 				<PropertyList />
-				<h1 className="container text-[20px] font-Source-Sans-Pro font-[700]">
+				<h1 className="container text-[18px] font-Source-Sans-Pro font-[700]">
 					Homes guests love
 				</h1>
 				<FeaturedProperties />
