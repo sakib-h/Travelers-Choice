@@ -99,4 +99,18 @@
 	.fListItem {
 		@apply mb-2.5 text-[#003580] cursor-pointer text-[14px];
 	}
+
+	/* search item */
+	.listItem {
+		@apply flex flex-col gap-[5px] mb-[10px] ;
+	}
+	.listItem > label {
+		@apply text-[12px];
+	}
+	.listItem > input {
+		@apply border-none px-3 py-2 outline-none rounded-md;
+	}
+	.listItem > span {
+		@apply border-none px-3 py-2 outline-none bg-white rounded-md flex items-center cursor-pointer;
+	}
 }

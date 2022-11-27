@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { FaBed, FaCalendarDay, FaMale, FaSearch } from "react-icons/fa";
-import { MdClose } from "react-icons/md";
+import { MdClose, MdTurnedIn } from "react-icons/md";
 import { DateRange } from "react-date-range";
 import "react-date-range/dist/styles.css"; // main css file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import { format } from "date-fns";
-const Navbar = () => {
+import { useNavigate } from "react-router-dom";
+const Navbar = ({ type }) => {
+	const [destination, setDestination] = useState("");
 	const [openSearch, setOpenSearch] = useState(false);
 	const [openDate, setOpenDate] = useState(false);
 	const [openOptions, setOpenOptions] = useState(false);
@@ -32,6 +34,10 @@ const Navbar = () => {
 						: options[name] - 1,
 			};
 		});
+	};
+	const navigate = useNavigate();
+	const handleSearch = () => {
+		navigate("/hotels", { state: { destination, date, options } });
 	};
 	return (
 		<nav className="h-[50px] bg-[#003580] text-white flex justify-center">
@@ -74,6 +80,9 @@ const Navbar = () => {
 									id="destination"
 									placeholder="Where are you going?"
 									className="border-none outline-none text-[gray] placeholder:text-[gray]"
+									onChange={(e) =>
+										setDestination(e.target.value)
+									}
 								/>
 							</div>
 						</div>
@@ -82,7 +91,7 @@ const Navbar = () => {
 							<div className="navbarSearchItem">
 								<FaCalendarDay className="navbarSearchIcon" />
 								<span
-									onClick={() => setOpenDate((prev) => !prev)}
+									onClick={() => setOpenDate(true)}
 									className="text-[gray] cursor-pointer">
 									{`${format(
 										date[0].startDate,
@@ -94,15 +103,26 @@ const Navbar = () => {
 								</span>
 							</div>
 							{openDate && (
-								<DateRange
-									editableDateInputs={true}
-									onChange={(item) =>
-										setDate([item.selection])
-									}
-									moveRangeOnFirstSelection={false}
-									ranges={date}
-									className="absolute top-[50px] left-[50%] translate-x-[-50%] z-[2]"
-								/>
+								<div className="absolute top-[50px] left-[50%] translate-x-[-50%] z-[2] bg-white rounded-md">
+									<DateRange
+										editableDateInputs={true}
+										onChange={(item) =>
+											setDate([item.selection])
+										}
+										moveRangeOnFirstSelection={false}
+										minDate={new Date()}
+										ranges={date}
+									/>
+									<div className="flex justify-end">
+										<button
+											className="bg-[#0071c2] text-[14px]  px-[10px] py-[5px] text-white font-[500] rounded-[5px] cursor-pointer mb-5 mr-3"
+											onClick={() => {
+												setOpenDate(false);
+											}}>
+											Done
+										</button>
+									</div>
+								</div>
 							)}
 						</div>
 
@@ -112,108 +132,125 @@ const Navbar = () => {
 								<span
 									className="text-[gray] cursor-pointer"
 									onClick={() => {
-										setOpenOptions((prev) => !prev);
+										setOpenOptions(true);
 									}}>
 									{`${options.adult} Adults, ${options.children} Children, ${options.room} Room`}
 								</span>
 							</div>
 							{openOptions && (
 								<div className="absolute top-[50px] left-[50%] translate-x-[-50%] bg-white text-gray rounded-[5px] shadow-custom-shadow px-5 z-[2]">
-									<div className="optionItem">
-										<span>Adults</span>
-										<div className="optionCounter">
-											<button
-												className="counterButton"
-												onClick={() => {
-													handleOption(
-														"adult",
-														"decrease"
-													);
-												}}
-												disabled={options.adult <= 1}>
-												-
-											</button>
-											<span className="number">
-												{options.adult}
-											</span>
-											<button
-												className="counterButton"
-												onClick={() => {
-													handleOption(
-														"adult",
-														"increase"
-													);
-												}}>
-												+
-											</button>
+									<div className="mb-5">
+										<div className="optionItem">
+											<span>Adults</span>
+											<div className="optionCounter">
+												<button
+													className="counterButton"
+													onClick={() => {
+														handleOption(
+															"adult",
+															"decrease"
+														);
+													}}
+													disabled={
+														options.adult <= 1
+													}>
+													-
+												</button>
+												<span className="number">
+													{options.adult}
+												</span>
+												<button
+													className="counterButton"
+													onClick={() => {
+														handleOption(
+															"adult",
+															"increase"
+														);
+													}}>
+													+
+												</button>
+											</div>
+										</div>
+
+										<div className="optionItem">
+											<span>Children</span>
+											<div className="optionCounter">
+												<button
+													className="counterButton"
+													onClick={() => {
+														handleOption(
+															"children",
+															"decrease"
+														);
+													}}
+													disabled={
+														options.children <= 0
+													}>
+													-
+												</button>
+												<span className="number">
+													{options.children}
+												</span>
+												<button
+													className="counterButton"
+													onClick={() => {
+														handleOption(
+															"children",
+															"increase"
+														);
+													}}>
+													+
+												</button>
+											</div>
+										</div>
+
+										<div className="optionItem">
+											<span>Rooms</span>
+											<div className="optionCounter">
+												<button
+													className="counterButton"
+													onClick={() => {
+														handleOption(
+															"room",
+															"decrease"
+														);
+													}}
+													disabled={
+														options.room <= 1
+													}>
+													-
+												</button>
+												<span className="number">
+													{options.room}
+												</span>
+												<button
+													className="counterButton"
+													onClick={() => {
+														handleOption(
+															"room",
+															"increase"
+														);
+													}}>
+													+
+												</button>
+											</div>
 										</div>
 									</div>
-
-									<div className="optionItem">
-										<span>Children</span>
-										<div className="optionCounter">
-											<button
-												className="counterButton"
-												onClick={() => {
-													handleOption(
-														"children",
-														"decrease"
-													);
-												}}
-												disabled={
-													options.children <= 0
-												}>
-												-
-											</button>
-											<span className="number">
-												{options.children}
-											</span>
-											<button
-												className="counterButton"
-												onClick={() => {
-													handleOption(
-														"children",
-														"increase"
-													);
-												}}>
-												+
-											</button>
-										</div>
-									</div>
-
-									<div className="optionItem">
-										<span>Rooms</span>
-										<div className="optionCounter">
-											<button
-												className="counterButton"
-												onClick={() => {
-													handleOption(
-														"room",
-														"decrease"
-													);
-												}}
-												disabled={options.room <= 1}>
-												-
-											</button>
-											<span className="number">
-												{options.room}
-											</span>
-											<button
-												className="counterButton"
-												onClick={() => {
-													handleOption(
-														"room",
-														"increase"
-													);
-												}}>
-												+
-											</button>
-										</div>
+									<div className="flex justify-end">
+										<button
+											className="bg-[#0071c2] text-[14px]  px-[10px] py-[5px] text-white font-[500] rounded-[5px] cursor-pointer mb-5 "
+											onClick={() => {
+												setOpenOptions(false);
+											}}>
+											Done
+										</button>
 									</div>
 								</div>
 							)}
 						</div>
-						<div className=" bg-[#0071c2] text-white font-[500] border-none outline-none px-5 py-2 cursor-pointer rounded-[5px] ">
+						<div
+							className=" bg-[#0071c2] text-white font-[500] border-none outline-none px-5 py-2 cursor-pointer rounded-[5px] "
+							onClick={handleSearch}>
 							<button className="headerButton">Search</button>
 						</div>
 					</div>
