@@ -86,9 +86,7 @@ const List = () => {
 						<div className="listResult  col-span-3">
 							<h1>Result</h1>
 						</div>
-						<div className="listResult  col-span-3">
-							<h1>Result</h1>
-						</div>
+						
 					</div>
 				</div>
 			</div>
