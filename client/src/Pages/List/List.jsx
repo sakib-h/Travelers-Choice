@@ -82,11 +82,78 @@ const List = () => {
 									</div>
 								)}
 							</div>
+							<div className="listItem">
+								<label>Option</label>
+								<div className="optionItem">
+									<span className="optionText">
+										Min Price <small>per Night</small>
+									</span>
+									<input
+										type="number"
+										name="minPrice"
+										id="minPrice"
+										className="optionInput"
+									/>
+								</div>
+							</div>
+
+							<div className="listItem">
+								<label>Option</label>
+								<div className="optionItem">
+									<span className="optionText">
+										Max Price <small>per Night</small>
+									</span>
+									<input
+										type="number"
+										name="maxPrice"
+										id="maxPrice"
+										className="optionInput"
+									/>
+								</div>
+							</div>
+
+							<div className="listItem">
+								<label>Option</label>
+								<div className="optionItem">
+									<span className="optionText">Adult</span>
+									<input
+										type="number"
+										name="adult"
+										id="adult"
+										className="optionInput"
+									/>
+								</div>
+							</div>
+
+							<div className="listItem">
+								<label>Option</label>
+								<div className="optionItem">
+									<span className="optionText">Children</span>
+									<input
+										type="number"
+										name="children"
+										id="children"
+										className="optionInput"
+									/>
+								</div>
+							</div>
+
+							<div className="listItem">
+								<label>Option</label>
+								<div className="optionItem">
+									<span className="optionText">Room</span>
+									<input
+										type="number"
+										name="room"
+										id="room"
+										className="optionInput"
+									/>
+								</div>
+							</div>
 						</div>
 						<div className="listResult  col-span-3">
 							<h1>Result</h1>
 						</div>
-						
 					</div>
 				</div>
 			</div>
