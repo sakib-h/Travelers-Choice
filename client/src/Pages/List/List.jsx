@@ -34,7 +34,7 @@ const List = () => {
 				<div className="container ">
 					<div className="grid grid-cols-1 md:grid-cols-5 lg:grid-cols-4 gap-5">
 						<div className=" md:col-span-2 lg:col-span-1 listSearch bg-[#febb02] p-2.5 rounded-[10px] sticky top-[10px]">
-							<h1 className="text-[18px] text-[#555] mb-2.5">
+							<h1 className="text-[18px] text-[#003580] mb-2.5">
 								Search
 							</h1>
 							<div className="listItem">
@@ -44,6 +44,7 @@ const List = () => {
 									name="destination"
 									id="destination"
 									placeholder={destination}
+									className="text-[#555] placeholder:text-[#555]"
 								/>
 							</div>
 
@@ -52,7 +53,8 @@ const List = () => {
 								<span
 									onClick={() => {
 										setOpenDate(true);
-									}}>
+									}}
+									className="text-[#555]">
 									{`${format(
 										date[0].startDate,
 										"MM/dd/yyyy"
@@ -82,72 +84,72 @@ const List = () => {
 									</div>
 								)}
 							</div>
-							<div className="listItem">
+							<div className="listItem ">
 								<label>Option</label>
-								<div className="optionItem">
-									<span className="optionText">
-										Min Price <small>per Night</small>
-									</span>
-									<input
-										type="number"
-										name="minPrice"
-										id="minPrice"
-										className="optionInput"
-									/>
-								</div>
-							</div>
+								<div className="px-2.5">
+									<div className="optionItem ">
+										<span className="optionText">
+											Min Price <small>per Night</small>
+										</span>
+										<input
+											type="number"
+											name="minPrice"
+											id="minPrice"
+											className="optionInput"
+										/>
+									</div>
 
-							<div className="listItem">
-								<label>Option</label>
-								<div className="optionItem">
-									<span className="optionText">
-										Max Price <small>per Night</small>
-									</span>
-									<input
-										type="number"
-										name="maxPrice"
-										id="maxPrice"
-										className="optionInput"
-									/>
-								</div>
-							</div>
+									<div className="optionItem">
+										<span className="optionText">
+											Max Price <small>per Night</small>
+										</span>
+										<input
+											type="number"
+											name="maxPrice"
+											id="maxPrice"
+											className="optionInput"
+										/>
+									</div>
 
-							<div className="listItem">
-								<label>Option</label>
-								<div className="optionItem">
-									<span className="optionText">Adult</span>
-									<input
-										type="number"
-										name="adult"
-										id="adult"
-										className="optionInput"
-									/>
-								</div>
-							</div>
+									<div className="optionItem">
+										<span className="optionText">
+											Adult
+										</span>
+										<input
+											type="number"
+											name="adult"
+											id="adult"
+											className="optionInput"
+											placeholder={options.adult}
+											min="1"
+										/>
+									</div>
 
-							<div className="listItem">
-								<label>Option</label>
-								<div className="optionItem">
-									<span className="optionText">Children</span>
-									<input
-										type="number"
-										name="children"
-										id="children"
-										className="optionInput"
-									/>
-								</div>
-							</div>
+									<div className="optionItem">
+										<span className="optionText">
+											Children
+										</span>
+										<input
+											type="number"
+											name="children"
+											id="children"
+											className="optionInput"
+											placeholder={options.children}
+											min="0"
+										/>
+									</div>
 
-							<div className="listItem">
-								<label>Option</label>
-								<div className="optionItem">
-									<span className="optionText">Room</span>
-									<input
-										type="number"
-										name="room"
-										id="room"
-										className="optionInput"
-									/>
+									<div className="optionItem">
+										<span className="optionText">Room</span>
+										<input
+											type="number"
+											name="room"
+											id="room"
+											className="optionInput"
+											placeholder={options.room}
+											min="1"
+										/>
+									</div>
 								</div>
 							</div>
 						</div>
