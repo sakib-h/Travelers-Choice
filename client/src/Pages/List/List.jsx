@@ -4,6 +4,7 @@ import { DateRange } from "react-date-range";
 import { useLocation } from "react-router-dom";
 import Header from "../../Components/Header/Header";
 import Navbar from "../../Components/Navbar/Navbar";
+import SearchItem from "../../Components/SearchItem/SearchItem";
 
 const List = () => {
 	const location = useLocation();
@@ -86,7 +87,7 @@ const List = () => {
 							</div>
 							<div className="listItem ">
 								<label>Option</label>
-								<div className="px-2.5">
+								<div className="">
 									<div className="optionItem ">
 										<span className="optionText">
 											Min Price <small>per Night</small>
@@ -152,9 +153,24 @@ const List = () => {
 									</div>
 								</div>
 							</div>
+							<button className="p-[10px] bg-[#0071c2] text-white border-none outline-none w-full font-[500] cursor-pointer">
+								Search
+							</button>
 						</div>
 						<div className="listResult  col-span-3">
-							<h1>Result</h1>
+							<SearchItem/>
+							<SearchItem/>
+							<SearchItem/>
+							<SearchItem/>
+							<SearchItem/>
+							<SearchItem/>
+							<SearchItem/>
+							<SearchItem/>
+							<SearchItem/>
+							<SearchItem/>
+							<SearchItem/>
+							<SearchItem/>
+							<SearchItem/>
 						</div>
 					</div>
 				</div>

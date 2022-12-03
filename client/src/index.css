@@ -105,7 +105,7 @@
 		@apply flex flex-col gap-[5px] mb-[10px];
 	}
 	.listItem > label {
-		@apply text-[12px] text-[#555];
+		@apply text-[13px] text-[#555];
 	}
 	.listItem > input {
 		@apply border-none px-3 py-2 outline-none rounded-md;
@@ -114,7 +114,7 @@
 		@apply border-none px-3 py-2 outline-none bg-white rounded-md flex items-center cursor-pointer;
 	}
 	.optionItem {
-		@apply flex justify-between w-full mb-[10px] text-[#003580] text-[12px];
+		@apply flex justify-between w-full  text-[#003580] text-[15px] font-[500];
 	}
 	.optionInput {
 		@apply w-[50px] border-none outline-none text-[#555] placeholder:text-[#555] p-1;
