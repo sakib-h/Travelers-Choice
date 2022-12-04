@@ -33,8 +33,8 @@ const List = () => {
 			<Header type="list" />
 			<div className="flex justify-center mt-5">
 				<div className="container ">
-					<div className="grid grid-cols-1 md:grid-cols-5 lg:grid-cols-4 gap-5">
-						<div className=" md:col-span-2 lg:col-span-1 listSearch bg-[#febb02] p-2.5 rounded-[10px] sticky top-[10px]">
+					<div className="grid grid-cols-1 lg:grid-cols-5 xl:grid-cols-4 gap-5">
+						<div className=" lg:col-span-2 xl:col-span-1 listSearch bg-[#febb02] p-2.5 rounded-[10px] sticky lg:relative  top-[10px]">
 							<h1 className="text-[18px] text-[#003580] mb-2.5">
 								Search
 							</h1>
@@ -158,19 +158,19 @@ const List = () => {
 							</button>
 						</div>
 						<div className="listResult  col-span-3">
-							<SearchItem/>
-							<SearchItem/>
-							<SearchItem/>
-							<SearchItem/>
-							<SearchItem/>
-							<SearchItem/>
-							<SearchItem/>
-							<SearchItem/>
-							<SearchItem/>
-							<SearchItem/>
-							<SearchItem/>
-							<SearchItem/>
-							<SearchItem/>
+							<SearchItem />
+							<SearchItem />
+							<SearchItem />
+							<SearchItem />
+							<SearchItem />
+							<SearchItem />
+							<SearchItem />
+							<SearchItem />
+							<SearchItem />
+							<SearchItem />
+							<SearchItem />
+							<SearchItem />
+							<SearchItem />
 						</div>
 					</div>
 				</div>
