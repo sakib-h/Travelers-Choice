@@ -169,8 +169,7 @@ const List = () => {
 							<SearchItem />
 							<SearchItem />
 							<SearchItem />
-							<SearchItem />
-							<SearchItem />
+							
 						</div>
 					</div>
 				</div>
