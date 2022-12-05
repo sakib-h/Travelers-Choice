@@ -120,9 +120,11 @@
 		@apply w-[50px] border-none outline-none text-[#555] placeholder:text-[#555] p-1;
 	}
 
-
 	/* search item list */
-	.siImg{
+	.siImg {
 		@apply w-[200px] h-[200px] object-cover rounded-[10px];
+	}
+	.siDesc {
+		@apply flex flex-col gap-[10px];
 	}
 }
