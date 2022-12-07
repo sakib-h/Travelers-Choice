@@ -9,9 +9,13 @@ const SearchItem = () => {
 				className="siImg"
 			/>
 			<div className="siDesc">
-				<h1 className="siTitle">Tower Street Apartments</h1>
-				<span className="siDistance">500m from center</span>
-				<span className="siTaxiOp">Free airport taxi</span>
+				<h1 className="text-[20px] text-[#0071c2]">
+					Tower Street Apartments
+				</h1>
+				<span className="text-[12px]">500m from center</span>
+				<span className="text-[12px] bg-[#008009] text-white w-max p-3 rounded-md">
+					Free airport taxi
+				</span>
 				<span className="siSubtitle">
 					Studio Apartment with Air conditioning
 				</span>
