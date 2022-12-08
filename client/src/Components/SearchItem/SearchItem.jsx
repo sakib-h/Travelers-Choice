@@ -8,7 +8,7 @@ const SearchItem = () => {
 				alt=""
 				className="siImg"
 			/>
-			<div className="siDesc">
+			<div className="flex flex-col gap-[10px] flex-[2]">
 				<h1 className="text-[20px] text-[#0071c2]">
 					Tower Street Apartments
 				</h1>
@@ -27,7 +27,7 @@ const SearchItem = () => {
 					You can cancel later, so lock in this great price today!
 				</span>
 			</div>
-			<div className="siDetails">
+			<div className="flex-[1]">
 				<div className="siRating">
 					<span>Excellent</span>
 					<button>8.9</button>
