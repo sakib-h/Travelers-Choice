@@ -40,8 +40,8 @@ const Navbar = ({ type }) => {
 		navigate("/hotels", { state: { destination, date, options } });
 	};
 	return (
-		<nav className="h-[50px] bg-[#003580] text-white flex justify-center">
-			<div className="container  flex items-center justify-between">
+		<nav className="h-[50px] bg-[#003580] text-white flex justify-center py-10">
+			<div className="container  flex items-center justify-between pt-2">
 				<div className="font-[600] font-Source-Sans-Pro text-2xl">
 					Travelers Choice
 				</div>
@@ -67,7 +67,7 @@ const Navbar = ({ type }) => {
 			{openSearch && (
 				<div className="lg:hidden bg-[rgba(0,0,0,0.9)] fixed top-0 bottom-0 left-0 right-0 z-10 ">
 					<MdClose
-						className="cursor-pointer  text-white  text-[2rem] absolute top-[30%] right-[10%] "
+						className="cursor-pointer  text-white  text-[2rem] absolute top-[25%] right-[10%] "
 						onClick={() => setOpenSearch(false)}
 					/>
 					<div className=" w-[80%] h-auto absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] bg-white  border-[3px] border-[#febb02] flex lg:hidden flex-col items-center  py-[20px] rounded-[5px] gap-10">

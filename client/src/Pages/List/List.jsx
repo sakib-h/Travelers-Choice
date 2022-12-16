@@ -34,7 +34,7 @@ const List = () => {
 			<div className="flex justify-center mt-5">
 				<div className="container ">
 					<div className="grid grid-cols-1 lg:grid-cols-5 xl:grid-cols-4 gap-5">
-						<div className=" lg:col-span-2 xl:col-span-1 listSearch bg-[#febb02] p-2.5 rounded-[10px] sticky lg:relative  top-[10px]">
+						<div className="hidden lg:inline-block lg:col-span-2 xl:col-span-1 listSearch bg-[#febb02] p-2.5 rounded-[10px]  lg:sticky  top-[10px] h-max">
 							<h1 className="text-[18px] text-[#003580] mb-2.5">
 								Search
 							</h1>
@@ -44,7 +44,11 @@ const List = () => {
 									type="text"
 									name="destination"
 									id="destination"
-									placeholder={destination}
+									placeholder={
+										destination
+											? destination
+											: "Where are you going?"
+									}
 									className="text-[#555] placeholder:text-[#555]"
 								/>
 							</div>
@@ -153,7 +157,7 @@ const List = () => {
 									</div>
 								</div>
 							</div>
-							<button className="p-[10px] bg-[#0071c2] text-white border-none outline-none w-full font-[500] cursor-pointer">
+							<button className="p-[10px] bg-[#0071c2] text-white border-none outline-none w-full font-[700] cursor-pointer  rounded-md mb-1">
 								Search
 							</button>
 						</div>
@@ -169,7 +173,6 @@ const List = () => {
 							<SearchItem />
 							<SearchItem />
 							<SearchItem />
-							
 						</div>
 					</div>
 				</div>

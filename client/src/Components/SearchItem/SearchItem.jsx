@@ -16,26 +16,34 @@ const SearchItem = () => {
 				<span className="text-[12px] bg-[#008009] text-white w-max p-3 rounded-md">
 					Free airport taxi
 				</span>
-				<span className="siSubtitle">
+				<span className="text-[12px] font-[700]">
 					Studio Apartment with Air conditioning
 				</span>
-				<span className="siFeatures">
+				<span className="text-[12px]">
 					Entire studio • 1 bathroom • 21m² 1 full bed
 				</span>
-				<span className="siCancelOp">Free cancellation </span>
-				<span className="siCancelOpSubtitle">
+				<span className="text-[12px]  text-[#008009] font-[bold]">
+					Free cancellation{" "}
+				</span>
+				<span className="text-[12px]  text-[#008009]">
 					You can cancel later, so lock in this great price today!
 				</span>
 			</div>
-			<div className="flex-[1]">
-				<div className="siRating">
-					<span>Excellent</span>
-					<button>8.9</button>
+			<div className="flex-[1] flex flex-col justify-between">
+				<div className="flex justify-between ">
+					<span className="font-[500]">Excellent</span>
+					<button className="bg-[#003580] text-white p-[5px] font-[700] border-none rounded-md">
+						8.9
+					</button>
 				</div>
-				<div className="siDetailTexts">
-					<span className="siPrice">$112</span>
-					<span className="siTaxOp">Includes taxes and fees</span>
-					<button className="siCheckButton">See availability</button>
+				<div className="text-right flex flex-col gap-[5px]">
+					<span className="text-[24px] ">$112</span>
+					<span className="text-[12px] text-[gray]">
+						Includes taxes and fees
+					</span>
+					<button className="bg-[#0071c2] text-white font-[bold] p-[5px] rounded-md border-none">
+						See availability
+					</button>
 				</div>
 			</div>
 		</div>
