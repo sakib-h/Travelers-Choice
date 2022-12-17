@@ -133,4 +133,9 @@
 	.siDetails {
 		@apply flex-1;
 	}
+
+	/* hotel */
+	.sliderIcon {
+		@apply text-[lightgray] text-[24px] cursor-pointer;
+	}
 }

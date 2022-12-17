@@ -2,6 +2,11 @@ import React, { useState } from "react";
 import Header from "../../Components/Header/Header";
 import Navbar from "../../Components/Navbar/Navbar";
 import { IoLocationSharp } from "react-icons/io5";
+import {
+	FaArrowCircleLeft,
+	FaArrowCircleRight,
+	FaTimesCircle,
+} from "react-icons/fa";
 import Footer from "../../Components/Footer/Footer";
 import MailList from "../../Components/MailList/MailList";
 const Hotel = () => {
@@ -29,8 +34,8 @@ const Hotel = () => {
 		},
 	];
 
-	const handleOpen = (i) => {
-		setSlideNumber(i);
+	const handleOpen = (index) => {
+		setSlideNumber(index);
 		setOpen(true);
 	};
 
@@ -48,9 +53,34 @@ const Hotel = () => {
 
 	return (
 		<div>
+			{open && (
+				<div className="fixed  w-full h-screen bg-[rgba(0,0,0,0.95)] z-[999]">
+					<div className=" slider  ">
+						<FaTimesCircle
+							className="close sliderIcon  absolute top-5 right-10"
+							onClick={() => setOpen(false)}
+						/>
+						<FaArrowCircleLeft
+							className="arrow sliderIcon absolute left-[5%] top-[50%]"
+							onClick={() => handleMove("l")}
+						/>
+						<div className="sliderWrapper">
+							<img
+								src={photos[slideNumber].src}
+								alt=""
+								className="sliderImg   w-[65%]  absolute top-[50%] left-[50%]  -translate-x-1/2 -translate-y-1/2"
+							/>
+						</div>
+						<FaArrowCircleRight
+							className="arrow sliderIcon absolute right-[5%] top-[50%]"
+							onClick={() => handleMove("r")}
+						/>
+					</div>
+				</div>
+			)}
 			<Navbar />
 			<Header type="list" />
-			<div className="hotelContainer flex  justify-center mt-">
+			<div className="hotelContainer flex flex-col items-center mt-">
 				<div className="hotelWrapper relative container flex flex-col gap-[10px]">
 					<button className=" absolute top-[10px] right-0 border-none px-[10px] py-[20px] bg-[#0071c2] text-white font-[700] rounded-[5px] cursor-pointer">
 						Reserve or Book Now!
@@ -68,12 +98,12 @@ const Hotel = () => {
 						airport taxi
 					</span>
 					<div className="grid grid-cols-3 gap-5">
-						{photos.map((photo, i) => (
+						{photos.map((photo, index) => (
 							<div
 								className="hotelImgWrapper col-span-1 "
-								key={i}>
+								key={index}>
 								<img
-									onClick={() => handleOpen(i)}
+									onClick={() => handleOpen(index)}
 									src={photo.src}
 									alt=""
 									className="hotelImg object-cover"
@@ -121,9 +151,9 @@ const Hotel = () => {
 						</div>
 					</div>
 				</div>
+				<MailList />
+				<Footer />
 			</div>
-			<MailList />
-			<Footer />
 		</div>
 	);
 };
