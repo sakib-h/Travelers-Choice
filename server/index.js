@@ -1,49 +1,45 @@
 import express from "express";
+import dotenv from "dotenv";
+import cors from "cors";
 import bodyParser from "body-parser";
 import mongoose from "mongoose";
-import cors from "cors";
-import dotenv from "dotenv";
-import authRoutes from "./routes/auth.js";
-import usersRoutes from "./routes/users.js";
-import hotelsRoutes from "./routes/hotels.js";
-import roomsRoutes from "./routes/rooms.js";
-import cookieParser from "cookie-parser";
+
+// importing routes
+import authRoute from "./routes/auth.js";
+import hotelsRoute from "./routes/hotels.js";
+import roomsRoute from "./routes/rooms.js";
+import usersRoute from "./routes/users.js";
+
 // initialize express
 const app = express();
-//Using body-parser for app
-app.use(bodyParser.json({ limit: "30mb", extended: true }));
-app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
-// Using cors for app
+
+// ------> middlewares  <------
+
+// use body-parser to parse json data sent to the API
+app.use(bodyParser.json());
+// use cors to allow cross-origin resource sharing
 app.use(cors());
-// Using Cookie Parser for app
-app.use(cookieParser());
-// Using dotenv for app
+// use dotenv to load environment variables from a .env file into process.env
 dotenv.config();
-// Initialize port
-const PORT = process.env.PORT || 5000;
-
-// Connection to Mongoose
+// Database url
 const URL = process.env.CONNECTION_URL;
-mongoose
-	.connect(URL)
-	.then(() => {
-		console.log("Connected to MongoDB");
-	})
-	.catch((err) => console.log(err.message));
+// Connecting to the database
+const connect = async () => {
+	await mongoose
+		.connect(URL)
+		.then(() => console.log("Connected to DB"))
+		.catch((err) => console.log(err.message));
+};
 
-// Using routes for app
-app.use("/server/auth", authRoutes);
-app.use("/server/users", usersRoutes);
-app.use("/server/hotels", hotelsRoutes);
-app.use("/server/rooms", roomsRoutes);
+// ------> routes  <------
+app.use("/auth", authRoute);
+app.use("/hotels", hotelsRoute);
+app.use("/rooms", roomsRoute);
+app.use("/users", usersRoute);
 
-// Handling Error
-app.use((err, req, res, next) => {
-	const status = err.statusCode || 500;
-	const message = err.message || "Something went wrong";
-	const data = err.data;
-	res.status(status).json({ message: message, data: data });
+const PORT = process.env.PORT || 8080;
+// listen for requests
+app.listen(PORT, () => {
+	connect();
+	console.log(`Server is running on port ${PORT}`);
 });
-
-// Listening to the server
-app.listen(PORT, () => console.log(`Server running on port: ${PORT}`));
