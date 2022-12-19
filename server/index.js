@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 import bodyParser from "body-parser";
 import mongoose from "mongoose";
-
+import cookieParser from "cookie-parser";
 // importing routes
 import authRoute from "./routes/auth.js";
 import hotelsRoute from "./routes/hotels.js";
@@ -21,6 +21,8 @@ app.use(bodyParser.json());
 app.use(cors());
 // use dotenv to load environment variables from a .env file into process.env
 dotenv.config();
+// use cookie-parser to parse Cookie header and populate req.cookies with an object keyed by the cookie names
+app.use(cookieParser());
 // Database url
 const URL = process.env.CONNECTION_URL;
 // Connecting to the database
