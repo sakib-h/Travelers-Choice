@@ -33,9 +33,22 @@ const connect = async () => {
 
 // ------> routes  <------
 app.use("/auth", authRoute);
-app.use("/hotels", hotelsRoute);
+app.use("/hotel", hotelsRoute);
 app.use("/rooms", roomsRoute);
 app.use("/users", usersRoute);
+
+// error handling middleware
+app.use((err, req, res, next) => {
+	console.log(err);
+	const errorStatus = err.status || 500;
+	const errorMessage = err.message || "Something went wrong";
+	return res.status(errorStatus).json({
+		// success: false,
+		status: errorStatus,
+		message: errorMessage,
+		stack: err.stack,
+	});
+});
 
 const PORT = process.env.PORT || 8080;
 // listen for requests
