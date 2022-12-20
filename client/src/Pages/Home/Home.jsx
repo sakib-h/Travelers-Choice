@@ -5,8 +5,11 @@ import Header from "../../Components/Header/Header";
 import MailList from "../../Components/MailList/MailList";
 import Navbar from "../../Components/Navbar/Navbar";
 import PropertyList from "../../Components/PropertyList/PropertyList";
+import useFetch from "../../hooks/useFetch";
 
 const Home = () => {
+	const { data, loading, error } = useFetch("hotel/countByType");
+
 	return (
 		<section>
 			<Navbar />

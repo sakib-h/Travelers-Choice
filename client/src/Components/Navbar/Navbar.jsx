@@ -5,7 +5,7 @@ import { DateRange } from "react-date-range";
 import "react-date-range/dist/styles.css"; // main css file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import { format } from "date-fns";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 const Navbar = ({ type }) => {
 	const [destination, setDestination] = useState("");
 	const [openSearch, setOpenSearch] = useState(false);
@@ -42,9 +42,11 @@ const Navbar = ({ type }) => {
 	return (
 		<nav className="h-[50px] bg-[#003580] text-white flex justify-center py-10">
 			<div className="container  flex items-center justify-between pt-2">
-				<div className="font-[600] font-Source-Sans-Pro text-2xl">
+				<Link
+					to="/"
+					className="font-[600] font-Source-Sans-Pro text-2xl">
 					Travelers Choice
-				</div>
+				</Link>
 				<div className="flex items-center gap-5 ">
 					<div className="cursor-pointer lg:hidden">
 						<FaSearch
