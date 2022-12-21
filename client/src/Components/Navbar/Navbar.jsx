@@ -7,6 +7,7 @@ import "react-date-range/dist/theme/default.css"; // theme css file
 import { format } from "date-fns";
 import { Link, useNavigate } from "react-router-dom";
 import { SearchContext } from "../../Context/SearchContext";
+import { AuthContext } from "../../Context/AuthContext";
 const Navbar = ({ type }) => {
 	const [destination, setDestination] = useState("");
 	const [openSearch, setOpenSearch] = useState(false);
@@ -37,6 +38,7 @@ const Navbar = ({ type }) => {
 		});
 	};
 	const { dispatch } = useContext(SearchContext);
+	const { user } = useContext(AuthContext);
 
 	const navigate = useNavigate();
 	const handleSearch = () => {
@@ -61,16 +63,20 @@ const Navbar = ({ type }) => {
 							onClick={() => setOpenSearch(true)}
 						/>
 					</div>
-					<div className="flex gap-5 lg:gap-10">
-						{["register", "login"].map((item, index) => (
-							<button
-								key={index}
-								className="capitalize bg-white text-[#003580] px-[10px]
+					{user ? (
+						<h3>{user.name}</h3>
+					) : (
+						<div className="flex gap-5 lg:gap-10">
+							{["register", "login"].map((item, index) => (
+								<button
+									key={index}
+									className="capitalize bg-white text-[#003580] px-[10px]
 								 py-[5px] rounded-lg ">
-								{item}
-							</button>
-						))}
-					</div>
+									{item}
+								</button>
+							))}
+						</div>
+					)}
 				</div>
 			</div>
 			{openSearch && (

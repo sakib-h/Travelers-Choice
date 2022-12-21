@@ -14,6 +14,7 @@ import { format } from "date-fns";
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { SearchContext } from "../../Context/SearchContext";
+import { AuthContext } from "../../Context/AuthContext";
 const Header = ({ type }) => {
 	const [destination, setDestination] = useState("");
 	const [openDate, setOpenDate] = useState(false);
@@ -44,6 +45,7 @@ const Header = ({ type }) => {
 	};
 
 	const { dispatch } = useContext(SearchContext);
+	const { user } = useContext(AuthContext);
 
 	const navigate = useNavigate();
 	const handleSearch = () => {
@@ -91,10 +93,12 @@ const Header = ({ type }) => {
 							savings of 10% or more with a free Travelers Choice
 							account
 						</p>
-						<button className="bg-[#0071c2] text-white font-[500] border-none outline-none p-2.5 cursor-pointer mb-[20px] lg:mb-[50px]">
-							{" "}
-							Sign in / Register
-						</button>
+						{!user && (
+							<button className="bg-[#0071c2] text-white font-[500] border-none outline-none p-2.5 cursor-pointer mb-[20px] lg:mb-[50px]">
+								{" "}
+								Sign in / Register
+							</button>
+						)}
 						<div className="h-[50px]  bg-white   border-[3px] border-[#febb02] hidden lg:flex flex-row items-center justify-between  px-[20px] rounded-[5px] absolute bottom-[-25px] w-full gap-5">
 							<div className="headerSearchItem">
 								<FaBed className="searchBarIcon" />
