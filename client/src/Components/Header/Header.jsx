@@ -23,7 +23,7 @@ const Header = ({ type }) => {
 		children: 0,
 		room: 1,
 	});
-	const [date, setDate] = useState([
+	const [dates, setDates] = useState([
 		{
 			startDate: new Date(),
 			endDate: new Date(),
@@ -49,9 +49,9 @@ const Header = ({ type }) => {
 	const handleSearch = () => {
 		dispatch({
 			type: "NEW_SEARCH",
-			payload: { destination, date, options },
+			payload: { destination, dates, options },
 		});
-		navigate("/hotels", { state: { destination, date, options } });
+		navigate("/hotels", { state: { destination, dates, options } });
 	};
 	return (
 		<div className="bg-[#003580] text-white flex justify-center  ">
@@ -116,10 +116,10 @@ const Header = ({ type }) => {
 									onClick={() => setOpenDate(true)}
 									className="text-[gray] cursor-pointer">
 									{`${format(
-										date[0].startDate,
+										dates[0].startDate,
 										"dd/MM/yyyy"
 									)} to ${format(
-										date[0].endDate,
+										dates[0].endDate,
 										"dd/MM/yyyy"
 									)}`}
 								</span>
@@ -128,11 +128,11 @@ const Header = ({ type }) => {
 										<DateRange
 											editableDateInputs={true}
 											onChange={(item) =>
-												setDate([item.selection])
+												setDates([item.selection])
 											}
 											moveRangeOnFirstSelection={false}
 											minDate={new Date()}
-											ranges={date}
+											ranges={dates}
 										/>
 										<div className="flex justify-end">
 											<button

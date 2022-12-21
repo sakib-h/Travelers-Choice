@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { FaBed, FaCalendarDay, FaMale, FaSearch } from "react-icons/fa";
 import { MdClose, MdTurnedIn } from "react-icons/md";
 import { DateRange } from "react-date-range";
@@ -6,6 +6,7 @@ import "react-date-range/dist/styles.css"; // main css file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import { format } from "date-fns";
 import { Link, useNavigate } from "react-router-dom";
+import { SearchContext } from "../../Context/SearchContext";
 const Navbar = ({ type }) => {
 	const [destination, setDestination] = useState("");
 	const [openSearch, setOpenSearch] = useState(false);
@@ -16,7 +17,7 @@ const Navbar = ({ type }) => {
 		children: 0,
 		room: 1,
 	});
-	const [date, setDate] = useState([
+	const [dates, setDates] = useState([
 		{
 			startDate: new Date(),
 			endDate: new Date(),
@@ -35,9 +36,15 @@ const Navbar = ({ type }) => {
 			};
 		});
 	};
+	const { dispatch } = useContext(SearchContext);
+
 	const navigate = useNavigate();
 	const handleSearch = () => {
-		navigate("/hotels", { state: { destination, date, options } });
+		dispatch({
+			type: "NEW_SEARCH",
+			payload: { destination, dates, options },
+		});
+		navigate("/hotels", { state: { destination, dates, options } });
 	};
 	return (
 		<nav className="h-[50px] bg-[#003580] text-white flex justify-center py-10">
@@ -96,10 +103,10 @@ const Navbar = ({ type }) => {
 									onClick={() => setOpenDate(true)}
 									className="text-[gray] cursor-pointer">
 									{`${format(
-										date[0].startDate,
+										dates[0].startDate,
 										"dd/MM/yyyy"
 									)} to ${format(
-										date[0].endDate,
+										dates[0].endDate,
 										"dd/MM/yyyy"
 									)}`}
 								</span>
@@ -109,11 +116,11 @@ const Navbar = ({ type }) => {
 									<DateRange
 										editableDateInputs={true}
 										onChange={(item) =>
-											setDate([item.selection])
+											setDates([item.selection])
 										}
 										moveRangeOnFirstSelection={false}
 										minDate={new Date()}
-										ranges={date}
+										ranges={dates}
 									/>
 									<div className="flex justify-end">
 										<button

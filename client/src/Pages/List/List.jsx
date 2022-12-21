@@ -11,9 +11,9 @@ const List = () => {
 	const [destination, setDestination] = useState(
 		location.state ? location.state.destination : ""
 	);
-	const [date, setDate] = useState(
+	const [dates, setDates] = useState(
 		location.state
-			? location.state.date
+			? location.state.dates
 			: [
 					{
 						startDate: new Date(),
@@ -69,10 +69,10 @@ const List = () => {
 									}}
 									className="text-[#555]">
 									{`${format(
-										date[0].startDate,
+										dates[0].startDate,
 										"MM/dd/yyyy"
 									)} to ${format(
-										date[0].endDate,
+										dates[0].endDate,
 										"MM/dd/yyyy"
 									)}`}
 								</span>
@@ -80,10 +80,10 @@ const List = () => {
 									<div className="absolute top-[10px] left-[110%] shadow-2xl bg-white rounded-md">
 										<DateRange
 											onChange={(item) =>
-												setDate([item.selection])
+												setDates([item.selection])
 											}
 											minDate={new Date()}
-											ranges={date}
+											ranges={dates}
 										/>
 										<div className="flex justify-end">
 											<button
