@@ -10,16 +10,21 @@ import {
 import Footer from "../../Components/Footer/Footer";
 import MailList from "../../Components/MailList/MailList";
 import useFetch from "../../hooks/useFetch";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { SearchContext } from "../../Context/SearchContext";
+import { AuthContext } from "../../Context/AuthContext";
+import Reservation from "../../Components/Reservation/Reservation";
 const Hotel = () => {
 	const location = useLocation();
 	const id = location.pathname.split("/")[2];
 	const [slideNumber, setSlideNumber] = useState(0);
 	const [open, setOpen] = useState(false);
+	const [openModal, setOpenModal] = useState(false);
 	const { data, loading, error } = useFetch(`/hotel/find/${id}`);
-
 	const { dates, options } = useContext(SearchContext);
+	const { user } = useContext(AuthContext);
+	const navigate = useNavigate();
+
 	const MILLISECONDS_PER_DAY = 1000 * 60 * 60 * 24;
 	const dayDifference = (start, end) => {
 		const timeDiff = Math.abs(end.getTime() - start.getTime());
@@ -31,7 +36,6 @@ const Hotel = () => {
 		dates[0]?.endDate || new Date(),
 		dates[0]?.startDate || new Date()
 	);
-	console.log(days);
 	const handleOpen = (index) => {
 		setSlideNumber(index);
 		setOpen(true);
@@ -48,7 +52,14 @@ const Hotel = () => {
 
 		setSlideNumber(newSlideNumber);
 	};
-
+	const handleClick = (e) => {
+		e.preventDefault();
+		if (user) {
+			setOpenModal(true);
+		} else {
+			navigate("/login");
+		}
+	};
 	return (
 		<div>
 			{open && (
@@ -139,7 +150,9 @@ const Hotel = () => {
 									</b>{" "}
 									( {days} nights)
 								</h2>
-								<button className="  border-none px-5 py-2 bg-[#0071c2] text-white font-[700] rounded-[5px] cursor-pointer">
+								<button
+									className="  border-none px-5 py-2 bg-[#0071c2] text-white font-[700] rounded-[5px] cursor-pointer"
+									onClick={handleClick}>
 									Reserve or Book Now!
 								</button>
 							</div>
@@ -148,6 +161,9 @@ const Hotel = () => {
 					<MailList />
 					<Footer />
 				</div>
+			)}
+			{openModal && (
+				<Reservation setOpenModal={setOpenModal} id={id}></Reservation>
 			)}
 		</div>
 	);

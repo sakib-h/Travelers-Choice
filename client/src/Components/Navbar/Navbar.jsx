@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { FaBed, FaCalendarDay, FaMale, FaSearch } from "react-icons/fa";
-import { MdClose, MdTurnedIn } from "react-icons/md";
+import { MdClose } from "react-icons/md";
 import { DateRange } from "react-date-range";
 import "react-date-range/dist/styles.css"; // main css file
 import "react-date-range/dist/theme/default.css"; // theme css file
