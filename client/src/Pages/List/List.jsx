@@ -5,7 +5,7 @@ import { useLocation } from "react-router-dom";
 import Header from "../../Components/Header/Header";
 import Navbar from "../../Components/Navbar/Navbar";
 import SearchItem from "../../Components/SearchItem/SearchItem";
-
+import useFetch from "../../hooks/useFetch";
 const List = () => {
 	const location = useLocation();
 	const [destination, setDestination] = useState(
@@ -26,7 +26,15 @@ const List = () => {
 		location.state ? location.state.options : ""
 	);
 	const [openDate, setOpenDate] = useState(false);
+	const [min, setMin] = useState(undefined);
+	const [max, setMax] = useState(undefined);
+	const { data, loading, error, reFetch } = useFetch(
+		`hotel?city=${destination}&min=${min || 0}&max=${max || 99999}`
+	);
 
+	const handleClick = () => {
+		reFetch();
+	};
 	return (
 		<section>
 			<Navbar />
@@ -101,6 +109,9 @@ const List = () => {
 											name="minPrice"
 											id="minPrice"
 											className="optionInput"
+											onChange={(e) =>
+												setMin(e.target.value)
+											}
 										/>
 									</div>
 
@@ -113,6 +124,9 @@ const List = () => {
 											name="maxPrice"
 											id="maxPrice"
 											className="optionInput"
+											onChange={(e) =>
+												setMax(e.target.value)
+											}
 										/>
 									</div>
 
@@ -157,22 +171,25 @@ const List = () => {
 									</div>
 								</div>
 							</div>
-							<button className="p-[10px] bg-[#0071c2] text-white border-none outline-none w-full font-[700] cursor-pointer  rounded-md mb-1">
+							<button
+								className="p-[10px] bg-[#0071c2] text-white border-none outline-none w-full font-[700] cursor-pointer  rounded-md mb-1"
+								onClick={handleClick}>
 								Search
 							</button>
 						</div>
 						<div className="listResult  col-span-3">
-							<SearchItem />
-							<SearchItem />
-							<SearchItem />
-							<SearchItem />
-							<SearchItem />
-							<SearchItem />
-							<SearchItem />
-							<SearchItem />
-							<SearchItem />
-							<SearchItem />
-							<SearchItem />
+							{loading ? (
+								"Loading"
+							) : (
+								<>
+									{data.map((item) => (
+										<SearchItem
+											key={item._id}
+											item={item}
+										/>
+									))}
+								</>
+							)}
 						</div>
 					</div>
 				</div>
