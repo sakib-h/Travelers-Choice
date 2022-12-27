@@ -8,7 +8,7 @@ import {
 	MdPendingActions,
 } from "react-icons/md";
 import { FaUser } from "react-icons/fa";
-import { FiShoppingBag } from "react-icons/fi";
+import { ImPriceTag } from "react-icons/im";
 import { HiClipboardList } from "react-icons/hi";
 import { ImStatsDots } from "react-icons/im";
 import { RiHealthBookFill } from "react-icons/ri";
@@ -26,7 +26,7 @@ const Sidebar = () => {
 				<ul className="list-none m-0 p-0">
 					<p className="title">MAIN</p>
 					<li>
-						<MdDashboard className="ico" />
+						<MdDashboard className="icon" />
 						<span>Dashboard</span>
 					</li>
 					<p className="title">LISTS</p>
@@ -35,7 +35,7 @@ const Sidebar = () => {
 						<span>Users</span>
 					</li>
 					<li>
-						<FiShoppingBag className="icon" />
+						<ImPriceTag className="icon" />
 						<span>Products</span>
 					</li>
 					<li>
@@ -79,7 +79,12 @@ const Sidebar = () => {
 					</li>
 				</ul>
 			</div>
-			<div className="bottom"></div>
+			<hr className="h-0 border-[0.5px] border-[#e6e3e3] mt-[5px]" />
+			<p className="title ml-[10px]">THEME</p>
+			<div className="bottom flex justify-start items-center gap-3 pl-[15px] mt-[15px]">
+				<div className="colorOption bg-[whitesmoke]" />
+				<div className="colorOption bg-[#333]" />
+			</div>
 		</div>
 	);
 };

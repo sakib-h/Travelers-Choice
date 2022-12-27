@@ -17,9 +17,15 @@
 		@apply text-[10px] font-bold text-[#999] mt-[15px] mb-[5px];
 	}
 	.sidebar li {
-		@apply flex justify-start  items-center gap-2 p-[85];
+		@apply flex justify-start  items-center gap-3 p-[5px] cursor-pointer hover:bg-[#ece8ff];
+	}
+	.sidebar span {
+		@apply text-[14px] font-[600] text-[#888];
+	}
+	.colorOption {
+		@apply w-[20px] h-[20px] rounded-full border-[1px] border-[#7451f8] cursor-pointer;
 	}
 	.icon {
-		@apply text-gray-500;
+		@apply text-[#7451f8] text-[18px];
 	}
 }
