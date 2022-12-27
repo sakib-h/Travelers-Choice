@@ -15,7 +15,7 @@ import { RiHealthBookFill } from "react-icons/ri";
 import { CgProfile } from "react-icons/cg";
 const Sidebar = () => {
 	return (
-		<div className="sidebar min-h-screen col-span-3 border-r-[0.5px] border-[#e6e3e3]">
+		<div className="sidebar min-h-screen  border-r-[0.5px] border-[#e6e3e3]">
 			<div className="top h-[50px] flex items-center justify-center">
 				<span className="logo text-[20px] font-bold text-[#6439ff]">
 					Travelers Choice

@@ -25,7 +25,15 @@
 	.colorOption {
 		@apply w-[20px] h-[20px] rounded-full border-[1px] border-[#7451f8] cursor-pointer;
 	}
-	.icon {
+	.sidebar .icon {
 		@apply text-[#7451f8] text-[18px];
+	}
+
+	/* navbar */
+	.navbar .icon {
+		@apply text-[20px] cursor-pointer;
+	}
+	.navbar .counter {
+		@apply text-[10px] font-bold text-[#fff] bg-[#ff0000] rounded-full w-[15px] h-[15px] flex justify-center items-center absolute top-[-5px] right-[-5px];
 	}
 }
