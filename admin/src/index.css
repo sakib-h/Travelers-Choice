@@ -1,0 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap");
+
+* {
+	font-family: "Nunito", sans-serif;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+	/* Sidebar  */
+	.sidebar .title {
+		@apply text-[10px] font-bold text-[#999] mt-[15px] mb-[5px];
+	}
+	.sidebar li {
+		@apply flex justify-start  items-center gap-2 p-[85];
+	}
+	.icon {
+		@apply text-gray-500;
+	}
+}

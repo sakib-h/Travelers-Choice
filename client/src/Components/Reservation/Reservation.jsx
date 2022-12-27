@@ -3,7 +3,9 @@ import { MdClose } from "react-icons/md";
 import useFetch from "../../hooks/useFetch";
 import { SearchContext } from "../../Context/SearchContext";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 const Reservation = ({ setOpenModal, id }) => {
+	const navigate = useNavigate();
 	const [selectedRooms, setSelectedRooms] = useState([]);
 	const { data, loading, error } = useFetch(`/hotel/rooms/${id}`);
 	const { dates } = useContext(SearchContext);
@@ -38,6 +40,7 @@ const Reservation = ({ setOpenModal, id }) => {
 				: selectedRooms.filter((item) => item !== value)
 		);
 	};
+
 	const handleClick = async () => {
 		try {
 			await Promise.all(
@@ -48,6 +51,8 @@ const Reservation = ({ setOpenModal, id }) => {
 					return res.data;
 				})
 			);
+			setOpenModal(false);
+			navigate("/");
 		} catch (error) {}
 	};
 
