@@ -1,5 +1,6 @@
 import Navbar from "../../Components/Navbar/Navbar";
 import Sidebar from "../../Components/Sidebar/Sidebar";
+import Widgets from "../../Components/Widgets/Widgets";
 
 const Home = () => {
 	return (
@@ -9,7 +10,12 @@ const Home = () => {
 			</div>
 			<div className="homeContainer col-span-9">
 				<Navbar />
-				Home Container
+				<div className="widgets grid grid-cols-2 lg:grid-cols-4 p-5 gap-5">
+					<Widgets type="user" />
+					<Widgets type="order" />
+					<Widgets type="earnings" />
+					<Widgets type="balance" />
+				</div>
 			</div>
 		</div>
 	);

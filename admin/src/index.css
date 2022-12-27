@@ -36,4 +36,14 @@
 	.navbar .counter {
 		@apply text-[10px] font-bold text-[#fff] bg-[#ff0000] rounded-full w-[15px] h-[15px] flex justify-center items-center absolute top-[-5px] right-[-5px];
 	}
+	/* widgets */
+	.widgets .positive {
+		@apply text-[green];
+	}
+	.widgets .negative {
+		@apply text-[red];
+	}
+	.widgets .icon {
+		@apply text-[18px]  rounded-[5px] p-[5px] self-end;
+	}
 }
