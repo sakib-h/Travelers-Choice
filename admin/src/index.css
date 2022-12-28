@@ -44,6 +44,6 @@
 		@apply text-[red];
 	}
 	.widgets .icon {
-		@apply text-[18px]  rounded-[5px] p-[5px] self-end;
+		@apply text-[28px]  rounded-[5px] p-[5px] self-end;
 	}
 }
