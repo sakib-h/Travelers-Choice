@@ -46,4 +46,24 @@
 	.widgets .icon {
 		@apply text-[28px]  rounded-[5px] p-[5px] self-end;
 	}
+	/* featured */
+	.featured .icon {
+		@apply text-[18px];
+	}
+
+	.featured .item {
+		@apply text-center;
+	}
+	.featured .itemTitle {
+		@apply text-[14px] text-[gray];
+	}
+	.featured .itemResult {
+		@apply flex items-center mt-2 text-[14px];
+	}
+	.featured .positive {
+		@apply text-[green];
+	}
+	.featured .negative {
+		@apply text-[red];
+	}
 }

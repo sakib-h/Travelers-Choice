@@ -1,3 +1,5 @@
+import Chart from "../../Components/Chart/Chart";
+import Featured from "../../Components/Featured/Featured";
 import Navbar from "../../Components/Navbar/Navbar";
 import Sidebar from "../../Components/Sidebar/Sidebar";
 import Widgets from "../../Components/Widgets/Widgets";
@@ -15,6 +17,10 @@ const Home = () => {
 					<Widgets type="order" />
 					<Widgets type="earnings" />
 					<Widgets type="balance" />
+				</div>
+				<div className="charts grid grid-cols-1 md:grid-cols-3 px-5 py-2  gap-5">
+					<Featured />
+					<Chart />
 				</div>
 			</div>
 		</div>
