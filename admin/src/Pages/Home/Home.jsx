@@ -2,6 +2,7 @@ import Chart from "../../Components/Chart/Chart";
 import Featured from "../../Components/Featured/Featured";
 import Navbar from "../../Components/Navbar/Navbar";
 import Sidebar from "../../Components/Sidebar/Sidebar";
+import Table from "../../Components/Table/Table";
 import Widgets from "../../Components/Widgets/Widgets";
 
 const Home = () => {
@@ -21,6 +22,12 @@ const Home = () => {
 				<div className="charts grid grid-cols-1 md:grid-cols-3 px-5 py-2  gap-5">
 					<Featured />
 					<Chart />
+				</div>
+				<div className="listContainer shadow-[2px_4px_10px_1px_rgba(201,201,201,0.47)] rounded-lg px-3 py-2 m-5">
+					<div className="listTitle font-[500] text-[gray] mb-4">
+						Latest Transactions
+					</div>
+					<Table />
 				</div>
 			</div>
 		</div>
