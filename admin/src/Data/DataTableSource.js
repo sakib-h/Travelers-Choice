@@ -35,7 +35,8 @@ export const userColumns = [
 		width: 160,
 		renderCell: (params) => {
 			return (
-				<div className={`cellWithStatus ${params.row.status}`}>
+				<div
+					className={`cellWithStatus capitalize px-3 py-2 rounded-md ${params.row.status}`}>
 					{params.row.status}
 				</div>
 			);
