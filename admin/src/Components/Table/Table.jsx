@@ -60,7 +60,7 @@ const BasicTable = () => {
 		},
 	];
 	return (
-		<TableContainer component={Paper} className="table">
+		<TableContainer component={Paper} className="table dark:bg-[#111] ">
 			<Table sx={{ minWidth: 650 }} aria-label="simple table">
 				<TableHead>
 					<TableRow>

@@ -5,7 +5,7 @@ import Sidebar from "../../Components/Sidebar/Sidebar";
 
 const List = () => {
 	return (
-		<div className="list grid grid-cols-12 gap-5">
+		<div className="list  bg-[white] dark:bg-[#111] grid grid-cols-12 gap-5">
 			<div className="col-span-3">
 				<Sidebar />
 			</div>

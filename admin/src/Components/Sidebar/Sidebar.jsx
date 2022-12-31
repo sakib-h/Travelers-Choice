@@ -13,13 +13,16 @@ import { HiClipboardList } from "react-icons/hi";
 import { ImStatsDots } from "react-icons/im";
 import { RiHealthBookFill } from "react-icons/ri";
 import { CgProfile } from "react-icons/cg";
+import { Link } from "react-router-dom";
 const Sidebar = () => {
 	return (
 		<div className="sidebar min-h-screen  border-r-[0.5px] border-[#e6e3e3]">
 			<div className="top h-[50px] flex items-center justify-center">
-				<span className="logo text-[20px] font-bold text-[#6439ff]">
-					Travelers Choice
-				</span>
+				<Link to="/">
+					<span className="logo text-[20px] font-bold text-[#6439ff]">
+						Travelers Choice
+					</span>
+				</Link>
 			</div>
 			<hr className="h-0 border-[0.5px] border-[#e6e3e3]" />
 			<div className="center pl-[10px]">
@@ -30,14 +33,18 @@ const Sidebar = () => {
 						<span>Dashboard</span>
 					</li>
 					<p className="title">LISTS</p>
-					<li>
-						<FaUser className="icon" />
-						<span>Users</span>
-					</li>
-					<li>
-						<ImPriceTag className="icon" />
-						<span>Products</span>
-					</li>
+					<Link to="/users">
+						<li>
+							<FaUser className="icon" />
+							<span>Users</span>
+						</li>
+					</Link>
+					<Link to="/products">
+						<li>
+							<ImPriceTag className="icon" />
+							<span>Products</span>
+						</li>
+					</Link>
 					<li>
 						<HiClipboardList className="icon" />
 						<span>Orders</span>

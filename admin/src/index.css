@@ -68,6 +68,9 @@
 	}
 
 	/* table */
+	.table .tableCell {
+		@apply dark:text-[gray];
+	}
 	.table .Approved {
 		@apply text-[green] bg-[rgba(0,128,0,0.151)];
 	}

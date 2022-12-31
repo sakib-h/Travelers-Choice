@@ -9,9 +9,9 @@ import {
 } from "react-icons/md";
 const Navbar = () => {
 	return (
-		<div className="navbar h-[50px] border-b-[0.5px] border-[#e6e3e3] flex items-center text-[14px] text-[#555]">
+		<div className="navbar h-[50px] dark:text-[#999] border-b-[0.5px] border-[#e6e3e3] dark:border-[#333] flex items-center text-[14px] text-[#555]">
 			<div className="wrapper w-full flex items-center justify-between p-[20px]">
-				<div className="search flex items-center border-[0.5px] border-[lightgray] rounded-md px-2 py-1">
+				<div className="search flex items-center border-[0.5px] border-[lightgray] dark:border-[gray] rounded-md px-2 py-1">
 					<input
 						type="text"
 						name="search"

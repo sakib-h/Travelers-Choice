@@ -4,7 +4,7 @@ import Chart from "../../Components/Chart/Chart";
 import Table from "../../Components/Table/Table";
 const Single = () => {
 	return (
-		<div className="single grid grid-cols-12 gap-5">
+		<div className="single  bg-[white] dark:bg-[#111] dark:text-[#9c9c9c] grid grid-cols-12 gap-5">
 			<div className="col-span-3">
 				<Sidebar />
 			</div>

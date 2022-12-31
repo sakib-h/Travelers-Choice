@@ -8,7 +8,7 @@ import { Routes, Route } from "react-router-dom";
 import { userInputs, productInputs } from "./Data/FormSource";
 function App() {
 	return (
-		<div className="App">
+		<div className="App dark">
 			<Routes>
 				<Route path="/">
 					<Route index element={<Home />} />

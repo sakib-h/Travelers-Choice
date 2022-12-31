@@ -5,7 +5,7 @@ import { useState } from "react";
 const New = ({ inputs, title }) => {
 	const [file, setFile] = useState("");
 	return (
-		<div className="new grid grid-cols-12 gap-5">
+		<div className="new  bg-[white] dark:bg-[#111] grid grid-cols-12 gap-5">
 			<div className="col-span-3">
 				<Sidebar />
 			</div>

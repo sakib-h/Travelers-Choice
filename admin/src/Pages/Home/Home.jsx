@@ -7,7 +7,7 @@ import Widgets from "../../Components/Widgets/Widgets";
 
 const Home = () => {
 	return (
-		<div className="home grid grid-cols-12 gap-5">
+		<div className="home bg-[white] dark:bg-[#111] dark:text-[rgb(156,156,156)] grid grid-cols-12 gap-5">
 			<div className="col-span-3">
 				<Sidebar />
 			</div>

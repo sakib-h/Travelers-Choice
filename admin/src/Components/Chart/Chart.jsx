@@ -54,7 +54,7 @@ const Chart = ({ aspect, title }) => {
 					<XAxis dataKey="name" stroke="gray" />
 					<CartesianGrid
 						strokeDasharray="3 3"
-						className="stroke-[rgb(228,225,225)]"
+						className="stroke-[rgb(228,225,225)] dark:stroke-[rgba(228,228,228,0.219)]"
 					/>
 					<Tooltip />
 					<Area
