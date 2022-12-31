@@ -1,7 +1,9 @@
 import Navbar from "../../Components/Navbar/Navbar";
 import Sidebar from "../../Components/Sidebar/Sidebar";
 import { MdOutlineDriveFolderUpload } from "react-icons/md";
+import { useState } from "react";
 const New = ({ inputs, title }) => {
+	const [file, setFile] = useState("");
 	return (
 		<div className="new grid grid-cols-12 gap-5">
 			<div className="col-span-3">
@@ -15,7 +17,11 @@ const New = ({ inputs, title }) => {
 				<div className="bottom shadow-[2px_4px_10px_1px_rgba(201,201,201,0.47)] rounded-lg px-3 py-2 m-5 lg:grid grid-cols-3 gap-5">
 					<div className="left col-span-1 flex justify-center">
 						<img
-							src="https://icon-library.com/images/no-image-icon/no-image-icon-0.jpg"
+							src={
+								file
+									? URL.createObjectURL(file)
+									: "https://icon-library.com/images/no-image-icon/no-image-icon-0.jpg"
+							}
 							alt="add"
 							className="w-[100px] h-[100px] rounded-full object-cover mb-10"
 						/>
@@ -25,15 +31,18 @@ const New = ({ inputs, title }) => {
 							action=""
 							className="form grid grid-cols-2 gap-5 mr-10">
 							<div className="formInput">
-								<label htmlFor="imageUp flex items-center gap-2.5">
+								<label
+									htmlFor="imageUpload"
+									className="flex items-center gap-2.5">
 									Upload you Image:{" "}
-									<MdOutlineDriveFolderUpload className="inline-block text-[18px] cursor-pointer" />
+									<MdOutlineDriveFolderUpload className=" text-[18px] cursor-pointer" />
 								</label>
 								<input
 									type="file"
 									name="imageUp"
-									id="imageUp"
+									id="imageUpload"
 									className="hidden"
+									onChange={(e) => setFile(e.target.files[0])}
 								/>
 							</div>
 							{inputs.map((input) => (
