@@ -21,7 +21,7 @@ const Home = () => {
 				</div>
 				<div className="charts grid grid-cols-1 md:grid-cols-3 px-5 py-2  gap-5">
 					<Featured />
-					<Chart />
+					<Chart aspect={2 / 1} title="Last Year (Revenue)" />
 				</div>
 				<div className="listContainer shadow-[2px_4px_10px_1px_rgba(201,201,201,0.47)] rounded-lg px-3 py-2 m-5">
 					<div className="listTitle font-[500] text-[gray] mb-4">

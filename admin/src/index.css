@@ -84,4 +84,18 @@
 	.dataTable .passive {
 		@apply text-[crimson] bg-[rgba(255,0,0,0.151)];
 	}
+
+	/* Single Detail */
+	.itemTitle {
+		@apply text-[24px] text-[#555] mb-2.5 font-[700];
+	}
+	.itemDetails {
+		@apply mb-2.5 text-[14px] text-[#888] font-[500];
+	}
+	.itemKey {
+		@apply font-[700] text-[gray] mr-1;
+	}
+	.itemValue {
+		@apply font-[400];
+	}
 }

@@ -2,7 +2,6 @@ import {
 	AreaChart,
 	Area,
 	XAxis,
-	YAxis,
 	CartesianGrid,
 	Tooltip,
 	ResponsiveContainer,
@@ -23,11 +22,11 @@ const data = [
 	{ name: "December", Total: 1480 },
 ];
 
-const Chart = () => {
+const Chart = ({ aspect, title }) => {
 	return (
 		<div className="chart md:col-span-2 shadow-[2px_4px_10px_1px_rgba(201,201,201,0.47)] rounded-lg px-3 py-2 text-[gray]">
-			<div className="title mb-5">Last Year (Revenue)</div>
-			<ResponsiveContainer width="100%" aspect={2 / 1}>
+			<div className="title mb-5">{title}</div>
+			<ResponsiveContainer width="100%" aspect={aspect}>
 				<AreaChart
 					width={730}
 					height={250}
