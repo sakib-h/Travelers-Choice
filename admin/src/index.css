@@ -98,4 +98,12 @@
 	.itemValue {
 		@apply font-[400];
 	}
+
+	/* form */
+	.formInput {
+		@apply col-span-1;
+	}
+	.form input {
+		@apply w-full px-2 py-1  outline-none border-b-[1px] border-[lightgray];
+	}
 }
