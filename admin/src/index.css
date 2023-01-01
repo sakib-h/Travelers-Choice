@@ -17,7 +17,7 @@
 		@apply text-[10px] font-bold text-[#999] mt-[15px] mb-[5px];
 	}
 	.sidebar li {
-		@apply flex justify-start  items-center gap-3 p-[5px] cursor-pointer hover:bg-[#ece8ff];
+		@apply flex justify-start  items-center gap-3 p-[5px] cursor-pointer hover:bg-[#ece8ff] dark:hover:bg-[#333];
 	}
 	.sidebar span {
 		@apply text-[14px] font-[600] text-[#888];
@@ -26,7 +26,7 @@
 		@apply w-[20px] h-[20px] rounded-full border-[1px] border-[#7451f8] cursor-pointer;
 	}
 	.sidebar .icon {
-		@apply text-[#7451f8] text-[18px];
+		@apply text-[#7451f8] text-[18px] dark:text-[#999];
 	}
 
 	/* navbar */
@@ -61,10 +61,10 @@
 		@apply flex items-center mt-2 text-[14px];
 	}
 	.featured .positive {
-		@apply text-[green];
+		@apply text-[green] dark:text-[#1aa515] dark:bg-[#8080800f];
 	}
 	.featured .negative {
-		@apply text-[red];
+		@apply text-[red] dark:text-[#f73232] dark:bg-[#8080800f];
 	}
 
 	/* table */
@@ -72,20 +72,20 @@
 		@apply dark:text-[gray];
 	}
 	.table .Approved {
-		@apply text-[green] bg-[rgba(0,128,0,0.151)];
+		@apply text-[green] bg-[rgba(0,128,0,0.151)] dark:text-[#1aa515] dark:bg-[#8080800f];
 	}
 	.table .Pending {
-		@apply text-[goldenrod] bg-[rgba(189,189,3,0.103)];
+		@apply text-[goldenrod] bg-[rgba(189,189,3,0.103)] dark:text-[#c5b13f] dark:bg-[#8080800f];
 	}
 	/* Data table */
 	.dataTable .active {
-		@apply text-[green] bg-[rgba(0,128,0,0.151)];
+		@apply text-[green] bg-[rgba(0,128,0,0.151)] dark:text-[#1aa515] dark:bg-[#8080800f];
 	}
 	.dataTable .pending {
-		@apply text-[goldenrod] bg-[rgba(189,189,3,0.151)];
+		@apply text-[goldenrod] bg-[rgba(189,189,3,0.151)] dark:text-[#c5b13f] dark:bg-[#8080800f];
 	}
 	.dataTable .passive {
-		@apply text-[crimson] bg-[rgba(255,0,0,0.151)];
+		@apply text-[crimson] bg-[rgba(255,0,0,0.151)] dark:text-[#f73232] dark:bg-[#8080800f];
 	}
 
 	/* Single Detail */
@@ -104,9 +104,9 @@
 
 	/* form */
 	.formInput {
-		@apply col-span-1;
+		@apply col-span-1 dark:text-[#999];
 	}
 	.form input {
-		@apply w-full px-2 py-1  outline-none border-b-[1px] border-[lightgray];
+		@apply w-full px-2 py-1  outline-none border-b-[1px] border-[lightgray] dark:bg-[transparent];
 	}
 }

@@ -16,22 +16,24 @@ import { CgProfile } from "react-icons/cg";
 import { Link } from "react-router-dom";
 const Sidebar = () => {
 	return (
-		<div className="sidebar min-h-screen  border-r-[0.5px] border-[#e6e3e3]">
+		<div className="sidebar min-h-screen  border-r-[0.5px] border-[#e6e3e3] dark:border-[#333]">
 			<div className="top h-[50px] flex items-center justify-center">
 				<Link to="/">
-					<span className="logo text-[20px] font-bold text-[#6439ff]">
+					<h1 className="logo text-[20px] font-bold text-[#6439ff] dark:text-[#999]">
 						Travelers Choice
-					</span>
+					</h1>
 				</Link>
 			</div>
-			<hr className="h-0 border-[0.5px] border-[#e6e3e3]" />
+			<hr className="h-0 border-[0.5px] border-[#e6e3e3] dark:border-[#333]" />
 			<div className="center pl-[10px]">
 				<ul className="list-none m-0 p-0">
 					<p className="title">MAIN</p>
-					<li>
-						<MdDashboard className="icon" />
-						<span>Dashboard</span>
-					</li>
+					<Link to="/">
+						<li>
+							<MdDashboard className="icon" />
+							<span>Dashboard</span>
+						</li>
+					</Link>
 					<p className="title">LISTS</p>
 					<Link to="/users">
 						<li>
@@ -86,7 +88,7 @@ const Sidebar = () => {
 					</li>
 				</ul>
 			</div>
-			<hr className="h-0 border-[0.5px] border-[#e6e3e3] mt-[5px]" />
+			<hr className="h-0 border-[0.5px] border-[#e6e3e3] dark:border-[#333] mt-[5px]" />
 			<p className="title ml-[10px]">THEME</p>
 			<div className="bottom flex justify-start items-center gap-3 pl-[15px] mt-[15px]">
 				<div className="colorOption bg-[whitesmoke]" />

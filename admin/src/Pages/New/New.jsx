@@ -11,7 +11,7 @@ const New = ({ inputs, title }) => {
 			</div>
 			<div className="newContainer col-span-9">
 				<Navbar />
-				<div className="top shadow-[2px_4px_10px_1px_rgba(201,201,201,0.47)] rounded-lg px-3 py-2 m-5">
+				<div className="top shadow-[2px_4px_10px_1px_rgba(201,201,201,0.47)] dark:shadow-[2px_4px_10px_1px_rgba(201,201,201,0.47)] rounded-lg px-3 py-2 m-5">
 					<h1 className="text-[lightgray] text-[20px]">{title}</h1>
 				</div>
 				<div className="bottom shadow-[2px_4px_10px_1px_rgba(201,201,201,0.47)] rounded-lg px-3 py-2 m-5 lg:grid grid-cols-3 gap-5">
@@ -54,7 +54,7 @@ const New = ({ inputs, title }) => {
 									/>
 								</div>
 							))}
-							<button className="w-max px-5 py-2 border-none bg-[#7451f8] text-[white] rounded-md font-[700] cursor-pointer mt-2.5">
+							<button className="w-max px-5 py-2 border-none bg-[#7451f8] dark:bg-[#555] text-[white] dark:text-[ightgray]  rounded-md font-[700] cursor-pointer my-2.5">
 								Send
 							</button>
 						</form>

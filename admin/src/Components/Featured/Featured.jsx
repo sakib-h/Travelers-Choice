@@ -6,7 +6,9 @@ const Featured = () => {
 	return (
 		<div className="featured md:col-span-1 shadow-[2px_4px_10px_1px_rgba(201,201,201,0.47)] rounded-lg px-3 py-2">
 			<div className="top flex justify-between items-center text-[gray]">
-				<h1 className="title text-[16px] font-[500]">Total Revenue</h1>
+				<h1 className="title text-[16px] font-[500] mb-2.5">
+					Total Revenue
+				</h1>
 				<MdMoreVert className="icon" />
 			</div>
 			<div className="bottom flex flex-col items-center justify-center gap-5">

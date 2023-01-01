@@ -21,7 +21,7 @@ const Widgets = ({ type }) => {
 				isMoney: false,
 				link: "See all User",
 				icon: (
-					<FaUser className="icon text-[crimson] bg-[rgba(255,0,0,0.2)]" />
+					<FaUser className="icon text-[crimson] bg-[rgba(255,0,0,0.2)] dark:text-[#f73232] dark:bg-[#e2e2e20f]" />
 				),
 			};
 			break;
@@ -32,7 +32,7 @@ const Widgets = ({ type }) => {
 				isMoney: false,
 				link: "View all Orders",
 				icon: (
-					<MdOutlineShoppingCart className="icon text-[goldenrod] bg-[rgba(218,165,32,0.2)]" />
+					<MdOutlineShoppingCart className="icon text-[goldenrod] bg-[rgba(218,165,32,0.2)] dark:text-[#c5b13f] dark:bg-[#e2e2e20f]" />
 				),
 			};
 			break;
@@ -42,7 +42,7 @@ const Widgets = ({ type }) => {
 				isMoney: true,
 				link: "View net Earnings",
 				icon: (
-					<MdOutlineMonetizationOn className="icon text-[green] bg-[rgba(0,128,0,0.2)]" />
+					<MdOutlineMonetizationOn className="icon text-[green] bg-[rgba(0,128,0,0.2)] dark:text-[#1aa515] dark:bg-[#e2e2e20f]" />
 				),
 			};
 			break;
@@ -52,7 +52,7 @@ const Widgets = ({ type }) => {
 				isMoney: true,
 				link: "See details",
 				icon: (
-					<MdOutlineAccountBalance className="icon text-[purple] bg-[rgba(128,0,128,0.2)]" />
+					<MdOutlineAccountBalance className="icon text-[purple] bg-[rgba(128,0,128,0.2)] dark:text-[#d142d1] dark:bg-[#e2e2e20f]" />
 				),
 			};
 			break;

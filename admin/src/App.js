@@ -6,9 +6,12 @@ import Single from "./Pages/Single/Single";
 import New from "./Pages/New/New";
 import { Routes, Route } from "react-router-dom";
 import { userInputs, productInputs } from "./Data/FormSource";
+import { useContext, useState } from "react";
+import { ThemeContext } from "./Context/ThemeContext";
 function App() {
+	const { darkMode } = useContext(ThemeContext);
 	return (
-		<div className="App dark">
+		<div className={`App ${darkMode && "dark"}`}>
 			<Routes>
 				<Route path="/">
 					<Route index element={<Home />} />
