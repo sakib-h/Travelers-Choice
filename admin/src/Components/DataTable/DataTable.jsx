@@ -1,7 +1,10 @@
 import { DataGrid } from "@mui/x-data-grid";
 import { userColumns, userRows } from "../../Data/DataTableSource";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 const DataTable = () => {
+	const [data, setData] = useState(userRows);
+
 	const actionColumn = [
 		{
 			field: "action",
@@ -34,7 +37,7 @@ const DataTable = () => {
 				</Link>
 			</div>
 			<DataGrid
-				rows={userRows}
+				rows={data}
 				columns={userColumns.concat(actionColumn)}
 				pageSize={10}
 				rowsPerPageOptions={[10]}
