@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
 	MdDashboard,
 	MdLocalShipping,
@@ -14,7 +14,17 @@ import { ImStatsDots } from "react-icons/im";
 import { RiHealthBookFill } from "react-icons/ri";
 import { CgProfile } from "react-icons/cg";
 import { Link } from "react-router-dom";
+import { ThemeContext } from "../../Context/ThemeContext";
 const Sidebar = () => {
+	const { dispatch } = useContext(ThemeContext);
+	const lightMode = () => {
+		dispatch({ type: "LIGHT" });
+		localStorage.setItem("theme", "light");
+	};
+	const darkMode = () => {
+		dispatch({ type: "DARK" });
+		localStorage.setItem("theme", "dark");
+	};
 	return (
 		<div className="sidebar min-h-screen  border-r-[0.5px] border-[#e6e3e3] dark:border-[#333]">
 			<div className="top h-[50px] flex items-center justify-center">
@@ -91,8 +101,11 @@ const Sidebar = () => {
 			<hr className="h-0 border-[0.5px] border-[#e6e3e3] dark:border-[#333] mt-[5px]" />
 			<p className="title ml-[10px]">THEME</p>
 			<div className="bottom flex justify-start items-center gap-3 pl-[15px] mt-[15px]">
-				<div className="colorOption bg-[whitesmoke]" />
-				<div className="colorOption bg-[#333]" />
+				<div
+					className="colorOption bg-[whitesmoke]"
+					onClick={lightMode}
+				/>
+				<div className="colorOption bg-[#333]" onClick={darkMode} />
 			</div>
 		</div>
 	);

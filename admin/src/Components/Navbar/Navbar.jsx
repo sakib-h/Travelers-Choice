@@ -1,3 +1,4 @@
+import { useContext } from "react";
 import {
 	MdOutlineSearch,
 	MdOutlineLanguage,
@@ -7,7 +8,19 @@ import {
 	MdList,
 	MdOutlineChatBubbleOutline,
 } from "react-icons/md";
+import { ThemeContext } from "../../Context/ThemeContext";
 const Navbar = () => {
+	const { dispatch } = useContext(ThemeContext);
+	const toggleHandler = () => {
+		const prevTheme = localStorage.getItem("theme");
+		if (prevTheme === "light") {
+			dispatch({ type: "TOGGLE" });
+			localStorage.setItem("theme", "dark");
+		} else if (prevTheme === "dark") {
+			dispatch({ type: "TOGGLE" });
+			return localStorage.setItem("theme", "light");
+		}
+	};
 	return (
 		<div className="navbar h-[50px] dark:text-[#999] border-b-[0.5px] border-[#e6e3e3] dark:border-[#333] flex items-center text-[14px] text-[#555]">
 			<div className="wrapper w-full flex items-center justify-between p-[20px]">
@@ -28,7 +41,10 @@ const Navbar = () => {
 					</div>
 
 					<div className="item">
-						<MdOutlineDarkMode className="icon" />
+						<MdOutlineDarkMode
+							className="icon"
+							onClick={toggleHandler}
+						/>
 					</div>
 
 					<div className="item">
