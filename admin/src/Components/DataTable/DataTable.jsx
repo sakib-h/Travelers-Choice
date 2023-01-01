@@ -4,21 +4,25 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 const DataTable = () => {
 	const [data, setData] = useState(userRows);
-
+	const handleDelete = (id) => {
+		setData(data.filter((item) => item.id !== id));
+	};
 	const actionColumn = [
 		{
 			field: "action",
 			headerName: "Action",
 			width: 200,
-			renderCell: () => {
+			renderCell: (params) => {
 				return (
-					<div className="cellAction flex items-center gap-4">
+					<div className="cellAction flex items-center gap-4 outline-none">
 						<Link to="/users/1">
-							<div className=" px-3 py-1 rounded-md text-[darkblue] dark:text-[gray] cursor-pointer border-dotted border-[1px] border-[rgba(0,0,139,0.6)] dark:border-none">
+							<div className=" px-3 py-1 rounded-md text-[darkblue] dark:text-[gray] cursor-pointer border-dotted border-[1px] border-[rgba(0,0,139,0.6)] dark:border-none ">
 								View
 							</div>
 						</Link>
-						<div className=" px-3 py-1 rounded-md text-[crimson]  dark:text-[gray] cursor-pointer border-dotted border-[1px] border-[rgba(220,20,60,0.6)] dark:border-none">
+						<div
+							className="px-3 py-1 rounded-md text-[crimson]  dark:text-[gray] cursor-pointer border-dotted border-[1px] border-[rgba(220,20,60,0.6)] dark:border-none"
+							onClick={() => handleDelete(params.row.id)}>
 							Delete
 						</div>
 					</div>
