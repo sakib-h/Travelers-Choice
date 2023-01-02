@@ -11,6 +11,8 @@ import { ThemeContext } from "./Context/ThemeContext";
 function App() {
 	const { darkMode } = useContext(ThemeContext);
 	const theme = localStorage.getItem("theme");
+
+	
 	return (
 		<div className={`App ${theme ? theme : darkMode && "dark"}`}>
 			<Routes>
