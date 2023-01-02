@@ -41,6 +41,7 @@ export const login = async (req, res, next) => {
 					name: user.name,
 					username: user.username,
 					email: user.email,
+					isAdmin: user.isAdmin,
 				};
 				res.cookie("access_token", token, { httpOnly: true })
 					.status(200)
