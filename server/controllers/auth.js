@@ -11,6 +11,10 @@ export const register = async (req, res, next) => {
 			name: req.body.name,
 			username: req.body.username,
 			email: req.body.email,
+			country: req.body.country,
+			img: req.body.img,
+			city: req.body.city,
+			phone: req.body.phone,
 			password: hash,
 			isAdmin: req.body.isAdmin,
 		});
@@ -41,6 +45,10 @@ export const login = async (req, res, next) => {
 					name: user.name,
 					username: user.username,
 					email: user.email,
+					country: user.country,
+					img: user.img,
+					city: user.city,
+					phone: user.phone,
 					isAdmin: user.isAdmin,
 				};
 				res.cookie("access_token", token, { httpOnly: true })

@@ -37,7 +37,9 @@ const Login = () => {
 			<Navbar />
 			<Header />
 			<div className="container">
-				<div className="title text-[18px] mt-5">User Login</div>
+				<div className="title text-[18px] mt-5 lg:mt-10">
+					User Login
+				</div>
 				<div className="max-w-[350px] flex flex-col">
 					<input
 						type="text"

@@ -31,26 +31,61 @@ function App() {
 					<Route path="login" element={<Login />} />
 					{/* Applying routes for user */}
 					<Route path="users">
-						<Route index element={<List />} />
-						<Route path=":userId" element={<Single />} />
+						<Route
+							index
+							element={
+								<ProtectedRoutes>
+									<List />
+								</ProtectedRoutes>
+							}
+						/>
+						<Route
+							path=":userId"
+							element={
+								<ProtectedRoutes>
+									<Single />
+								</ProtectedRoutes>
+							}
+						/>
 						<Route
 							path="new"
 							element={
-								<New inputs={userInputs} title="Add new User" />
+								<ProtectedRoutes>
+									<New
+										inputs={userInputs}
+										title="Add new User"
+									/>
+								</ProtectedRoutes>
 							}
 						/>
 					</Route>
 					{/* Applying routes for products */}
 					<Route path="products">
-						<Route index element={<List />} />
-						<Route path=":productId" element={<Single />} />
+						<Route
+							index
+							element={
+								<ProtectedRoutes>
+									<List />
+								</ProtectedRoutes>
+							}
+						/>
+						<Route
+							path=":productId"
+							element={
+								<ProtectedRoutes>
+									<Single />
+								</ProtectedRoutes>
+							}
+						/>
 						<Route
 							path="new"
 							element={
-								<New
-									inputs={productInputs}
-									title="Add new Product"
-								/>
+								<ProtectedRoutes>
+									<New
+										inputs={productInputs}
+										title="Add new Product"
+									/>
+								</ProtectedRoutes>
 							}
 						/>
 					</Route>
