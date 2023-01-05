@@ -6,7 +6,9 @@ import {
 	MdLogout,
 	MdSettings,
 	MdPendingActions,
+	MdOutlineHotel,
 } from "react-icons/md";
+import { RiHotelLine } from "react-icons/ri";
 import { FaUser } from "react-icons/fa";
 import { ImPriceTag } from "react-icons/im";
 import { HiClipboardList } from "react-icons/hi";
@@ -51,16 +53,18 @@ const Sidebar = () => {
 							<span>Users</span>
 						</li>
 					</Link>
-					<Link to="/products">
+					<Link to="/hotels">
 						<li>
-							<ImPriceTag className="icon" />
-							<span>Products</span>
+							<RiHotelLine className="icon" />
+							<span>Hotels</span>
 						</li>
 					</Link>
-					<li>
-						<HiClipboardList className="icon" />
-						<span>Orders</span>
-					</li>
+					<Link to="/rooms">
+						<li>
+							<MdOutlineHotel className="icon" />
+							<span>Rooms</span>
+						</li>
+					</Link>
 					<li>
 						<MdLocalShipping className="icon" />
 						<span>Delivery</span>

@@ -2,7 +2,7 @@ import React from "react";
 import useFetch from "../../hooks/useFetch";
 
 const FeaturedProperties = () => {
-	const { data, loading, error } = useFetch("hotel?featured=true&limit=4");
+	const { data, loading, error } = useFetch("/hotels?featured=true&limit=4");
 	return (
 		<div className="container">
 			<div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[20px]">

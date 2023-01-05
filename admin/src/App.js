@@ -9,6 +9,7 @@ import { userInputs, productInputs } from "./Data/FormSource";
 import { useContext } from "react";
 import { ThemeContext } from "./Context/ThemeContext";
 import { AuthContext } from "./Context/AuthContext";
+import {hotelColumns, userColumns} from "./Data/DataTableSource";
 function App() {
 	const { darkMode } = useContext(ThemeContext);
 	const theme = localStorage.getItem("theme");
@@ -35,7 +36,7 @@ function App() {
 							index
 							element={
 								<ProtectedRoutes>
-									<List />
+									<List columns={userColumns} />
 								</ProtectedRoutes>
 							}
 						/>
@@ -59,13 +60,13 @@ function App() {
 							}
 						/>
 					</Route>
-					{/* Applying routes for products */}
-					<Route path="products">
+					{/* Applying routes for Hotels */}
+					<Route path="hotels">
 						<Route
 							index
 							element={
 								<ProtectedRoutes>
-									<List />
+									<List columns={hotelColumns} />
 								</ProtectedRoutes>
 							}
 						/>

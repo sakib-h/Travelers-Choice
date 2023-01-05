@@ -8,7 +8,7 @@ import PropertyList from "../../Components/PropertyList/PropertyList";
 import useFetch from "../../hooks/useFetch";
 
 const Home = () => {
-	const { data, loading, error } = useFetch("hotel/countByType");
+	const { data, loading, error } = useFetch("hotels/countByType");
 
 	return (
 		<section>
