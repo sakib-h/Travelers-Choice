@@ -37,7 +37,7 @@ const connect = async () => {
 app.use("/auth", authRoute);
 app.use("/hotel", hotelsRoute);
 app.use("/room", roomsRoute);
-app.use("/user", usersRoute);
+app.use("/users", usersRoute);
 
 // error handling middleware
 app.use((err, req, res, next) => {
