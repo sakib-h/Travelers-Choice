@@ -2,11 +2,8 @@ import Navbar from "../../Components/Navbar/Navbar";
 import Sidebar from "../../Components/Sidebar/Sidebar";
 import { MdOutlineDriveFolderUpload } from "react-icons/md";
 import { useState } from "react";
-const New = ({ inputs, title }) => {
+const NewHotel = ({ inputs, title }) => {
 	const [file, setFile] = useState("");
-	const [info, setInfo] = useState({});
-
-	const handleChange = () => {};
 	return (
 		<div className="new  bg-[white] dark:bg-[#111] grid grid-cols-12 gap-5">
 			<div className="col-span-3">
@@ -54,14 +51,13 @@ const New = ({ inputs, title }) => {
 									<input
 										type={input.type}
 										placeholder={input.placeholder}
-										onChange={handleChange}
 									/>
 								</div>
 							))}
+							<button className="w-max px-5 py-2 border-none bg-[#7451f8] dark:bg-[#555] text-[white] dark:text-[ightgray]  rounded-md font-[700] cursor-pointer my-2.5">
+								Send
+							</button>
 						</form>
-						<button className="w-max px-5 py-2 border-none bg-[#7451f8] dark:bg-[#555] text-[white] dark:text-[lightgray]  rounded-md font-[700] cursor-pointer my-5">
-							Send
-						</button>
 					</div>
 				</div>
 			</div>
@@ -69,4 +65,4 @@ const New = ({ inputs, title }) => {
 	);
 };
 
-export default New;
+export default NewHotel;
