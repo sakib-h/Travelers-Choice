@@ -9,7 +9,8 @@ import { userInputs, productInputs } from "./Data/FormSource";
 import { useContext } from "react";
 import { ThemeContext } from "./Context/ThemeContext";
 import { AuthContext } from "./Context/AuthContext";
-import {hotelColumns, userColumns} from "./Data/DataTableSource";
+import { hotelColumns, userColumns } from "./Data/DataTableSource";
+import NewHotel from "./Pages/New/NewHotel";
 function App() {
 	const { darkMode } = useContext(ThemeContext);
 	const theme = localStorage.getItem("theme");
@@ -82,10 +83,7 @@ function App() {
 							path="new"
 							element={
 								<ProtectedRoutes>
-									<New
-										inputs={productInputs}
-										title="Add new Product"
-									/>
+									<NewHotel  />
 								</ProtectedRoutes>
 							}
 						/>

@@ -49,7 +49,7 @@ const DataTable = ({ columns }) => {
 			<div className="dataTableTitle flex justify-between items-center text-[18px] text-[gray] mb-2.5">
 				Add new User
 				<Link
-					to="/users/new"
+					to={`/${path}/new`}
 					className="addUser text-[green] dark:text-[#1aa515] text-[14px] font-[400] border-[1px] border-[green] px-3 py-1 rounded-md cursor-pointer">
 					Add New
 				</Link>

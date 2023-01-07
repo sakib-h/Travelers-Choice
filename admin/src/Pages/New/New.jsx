@@ -21,7 +21,12 @@ const New = ({ inputs, title }) => {
 				"https://api.cloudinary.com/v1_1/sakibhasan14168/image/upload",
 				data
 			);
-			console.log(uploadRes);
+			const { url } = uploadRes.data;
+			const newUser = {
+				...info,
+				img: url,
+			};
+			await axios.post("/auth/register", newUser);
 		} catch (error) {
 			console.log(error);
 		}
