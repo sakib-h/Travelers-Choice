@@ -4,14 +4,50 @@ import { MdOutlineDriveFolderUpload } from "react-icons/md";
 import { useState } from "react";
 import { hotelInputs } from "../../Data/FormSource";
 import useFetch from "../../hooks/useFetch";
+import axios from "axios";
+
 const NewHotel = () => {
 	const [files, setFiles] = useState("");
 	const [info, setInfo] = useState({});
+	const [rooms, setRooms] = useState([]);
 	const { data, loading, error } = useFetch("/rooms");
 	const handleChange = (e) => {
 		setInfo((prev) => ({ ...prev, [e.target.id]: e.target.value }));
 	};
-	const handleSelect = () => {};
+	const handleSelect = (e) => {
+		const value = Array.from(
+			e.target.selectedOptions,
+			(option) => option.value
+		);
+		setRooms(value);
+	};
+	const handleClick = async (e) => {
+		e.preventDefault();
+		try {
+			const list = await Promise.all(
+				Object.values(files).map(async (file) => {
+					const data = new FormData();
+					data.append("file", file);
+					data.append("upload_preset", "upload");
+					const uploadRes = await axios.post(
+						"https://api.cloudinary.com/v1_1/sakibhasan14168/image/upload",
+						data
+					);
+					const { url } = uploadRes.data;
+					return url;
+				})
+			);
+			const newHotel = {
+				...info,
+				rooms,
+				photos: list,
+			};
+			console.log(newHotel);
+			await axios.post("/hotels", newHotel);
+		} catch (err) {
+			error(err);
+		}
+	};
 	return (
 		<div className="new  bg-[white] dark:bg-[#111] grid grid-cols-12 gap-5">
 			<div className="col-span-3">
@@ -72,17 +108,19 @@ const NewHotel = () => {
 								<select
 									name="featured"
 									id="featured"
+									className="px-2 py-1 border-[1px] border-[lightgray] dark:bg-[transparent] rounded-md"
 									onChange={handleChange}>
 									<option value="true">Yes</option>
 									<option value="false">No</option>
 								</select>
 							</div>
-							<div className="selectRooms">
+							<div className="selectRooms col-span-2">
 								<label>Rooms </label>
 								<select
 									name="rooms"
 									id="rooms"
 									multiple
+									className="w-full px-3 py-2 border-[1px] border-[lightgray] dark:bg-[transparent] rounded-md"
 									onChange={handleSelect}>
 									{loading
 										? "Loading"
@@ -90,13 +128,15 @@ const NewHotel = () => {
 										  data.map((room) => (
 												<option
 													key={room._id}
-													value={room._ud}>
+													value={room._id}>
 													{room.title}
 												</option>
 										  ))}
 								</select>
 							</div>
-							<button className="w-max px-5 py-2 border-none bg-[#7451f8] dark:bg-[#555] text-[white] dark:text-[lightgray]  rounded-md font-[700] cursor-pointer my-2.5">
+							<button
+								className="w-max px-5 py-2 border-none bg-[#7451f8] dark:bg-[#555] text-[white] dark:text-[lightgray]  rounded-md font-[700] cursor-pointer my-2.5"
+								onClick={handleClick}>
 								Send
 							</button>
 						</form>
