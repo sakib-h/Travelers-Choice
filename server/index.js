@@ -23,6 +23,7 @@ app.use(cors());
 dotenv.config();
 // use cookie-parser to parse Cookie header and populate req.cookies with an object keyed by the cookie names
 app.use(cookieParser());
+
 // Database url
 const URL = process.env.CONNECTION_URL;
 // Connecting to the database

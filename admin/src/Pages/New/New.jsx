@@ -2,11 +2,31 @@ import Navbar from "../../Components/Navbar/Navbar";
 import Sidebar from "../../Components/Sidebar/Sidebar";
 import { MdOutlineDriveFolderUpload } from "react-icons/md";
 import { useState } from "react";
+import axios from "axios";
 const New = ({ inputs, title }) => {
 	const [file, setFile] = useState("");
 	const [info, setInfo] = useState({});
 
-	const handleChange = () => {};
+	const handleChange = (e) => {
+		setInfo((prev) => ({ ...prev, [e.target.id]: e.target.value }));
+	};
+	const handleClick = async (e) => {
+		e.preventDefault();
+		const data = new FormData();
+		data.append("file", file);
+		data.append("upload_preset", "upload");
+
+		try {
+			const uploadRes = await axios.post(
+				"https://api.cloudinary.com/v1_1/sakibhasan14168/image/upload",
+				data
+			);
+			console.log(uploadRes);
+		} catch (error) {
+			console.log(error);
+		}
+	};
+
 	return (
 		<div className="new  bg-[white] dark:bg-[#111] grid grid-cols-12 gap-5">
 			<div className="col-span-3">
@@ -42,7 +62,7 @@ const New = ({ inputs, title }) => {
 								</label>
 								<input
 									type="file"
-									name="imageUp"
+									name="avatar"
 									id="imageUpload"
 									className="hidden"
 									onChange={(e) => setFile(e.target.files[0])}
@@ -52,16 +72,19 @@ const New = ({ inputs, title }) => {
 								<div className="formInput" key={input.id}>
 									<label>{input.label}</label>
 									<input
+										id={input.id}
 										type={input.type}
 										placeholder={input.placeholder}
 										onChange={handleChange}
 									/>
 								</div>
 							))}
+							<button
+								className=" w-max px-5 py-2 border-none bg-[#7451f8] dark:bg-[#555] text-[white] dark:text-[lightgray]  rounded-md font-[700] cursor-pointer my-5"
+								onClick={handleClick}>
+								Send
+							</button>
 						</form>
-						<button className="w-max px-5 py-2 border-none bg-[#7451f8] dark:bg-[#555] text-[white] dark:text-[lightgray]  rounded-md font-[700] cursor-pointer my-5">
-							Send
-						</button>
 					</div>
 				</div>
 			</div>
