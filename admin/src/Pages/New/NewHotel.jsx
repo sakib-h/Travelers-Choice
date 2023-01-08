@@ -108,7 +108,7 @@ const NewHotel = () => {
 								<select
 									name="featured"
 									id="featured"
-									className="px-2 py-1 border-[1px] border-[lightgray] dark:bg-[transparent] rounded-md"
+									className="px-2 py-1 border-[1px] border-[lightgray] dark:bg-[transparent] rounded-md outline-none"
 									onChange={handleChange}>
 									<option value="true">Yes</option>
 									<option value="false">No</option>

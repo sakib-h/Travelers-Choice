@@ -3,7 +3,8 @@ import Sidebar from "../../Components/Sidebar/Sidebar";
 import { MdOutlineDriveFolderUpload } from "react-icons/md";
 import { useState } from "react";
 import axios from "axios";
-const New = ({ inputs, title }) => {
+import { userInputs } from "../../Data/FormSource";
+const New = () => {
 	const [file, setFile] = useState("");
 	const [info, setInfo] = useState({});
 
@@ -40,7 +41,9 @@ const New = ({ inputs, title }) => {
 			<div className="newContainer col-span-9">
 				<Navbar />
 				<div className="top shadow-[2px_4px_10px_1px_rgba(201,201,201,0.47)] dark:shadow-[2px_4px_10px_1px_rgba(201,201,201,0.47)] rounded-lg px-3 py-2 m-5">
-					<h1 className="text-[lightgray] text-[20px]">{title}</h1>
+					<h1 className="text-[lightgray] text-[20px]">
+						Add new User
+					</h1>
 				</div>
 				<div className="bottom shadow-[2px_4px_10px_1px_rgba(201,201,201,0.47)] rounded-lg px-3 py-2 m-5 lg:grid grid-cols-3 gap-5">
 					<div className="left col-span-1 flex justify-center">
@@ -73,7 +76,7 @@ const New = ({ inputs, title }) => {
 									onChange={(e) => setFile(e.target.files[0])}
 								/>
 							</div>
-							{inputs.map((input) => (
+							{userInputs.map((input) => (
 								<div className="formInput" key={input.id}>
 									<label>{input.label}</label>
 									<input

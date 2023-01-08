@@ -46,8 +46,8 @@ const DataTable = ({ columns }) => {
 	];
 	return (
 		<div className="dataTable h-[720px] p-5">
-			<div className="dataTableTitle flex justify-between items-center text-[18px] text-[gray] mb-2.5">
-				Add new User
+			<div className="dataTableTitle flex justify-between items-center text-[18px] text-[gray] mb-2.5 capitalize">
+				{path}
 				<Link
 					to={`/${path}/new`}
 					className="addUser text-[green] dark:text-[#1aa515] text-[14px] font-[400] border-[1px] border-[green] px-3 py-1 rounded-md cursor-pointer">

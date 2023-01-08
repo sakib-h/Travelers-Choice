@@ -5,12 +5,12 @@ import List from "./Pages/List/List";
 import Single from "./Pages/Single/Single";
 import New from "./Pages/New/New";
 import { Routes, Route, Navigate } from "react-router-dom";
-import { userInputs, productInputs } from "./Data/FormSource";
 import { useContext } from "react";
 import { ThemeContext } from "./Context/ThemeContext";
 import { AuthContext } from "./Context/AuthContext";
-import { hotelColumns, userColumns } from "./Data/DataTableSource";
+import { hotelColumns, roomColumns, userColumns } from "./Data/DataTableSource";
 import NewHotel from "./Pages/New/NewHotel";
+import NewRoom from "./Pages/New/NewRoom";
 function App() {
 	const { darkMode } = useContext(ThemeContext);
 	const theme = localStorage.getItem("theme");
@@ -53,10 +53,7 @@ function App() {
 							path="new"
 							element={
 								<ProtectedRoutes>
-									<New
-										inputs={userInputs}
-										title="Add new User"
-									/>
+									<New />
 								</ProtectedRoutes>
 							}
 						/>
@@ -83,7 +80,34 @@ function App() {
 							path="new"
 							element={
 								<ProtectedRoutes>
-									<NewHotel  />
+									<NewHotel />
+								</ProtectedRoutes>
+							}
+						/>
+					</Route>
+					{/* Applying routes for Rooms */}
+					<Route path="rooms">
+						<Route
+							index
+							element={
+								<ProtectedRoutes>
+									<List columns={roomColumns} />
+								</ProtectedRoutes>
+							}
+						/>
+						<Route
+							path=":productId"
+							element={
+								<ProtectedRoutes>
+									<Single />
+								</ProtectedRoutes>
+							}
+						/>
+						<Route
+							path="new"
+							element={
+								<ProtectedRoutes>
+									<NewRoom />
 								</ProtectedRoutes>
 							}
 						/>
