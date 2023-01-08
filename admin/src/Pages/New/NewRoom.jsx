@@ -4,17 +4,24 @@ import { MdOutlineDriveFolderUpload } from "react-icons/md";
 import { useState } from "react";
 import { roomInputs } from "../../Data/FormSource";
 import useFetch from "../../hooks/useFetch";
+import axios from "axios";
 const NewRoom = () => {
 	const [info, setInfo] = useState([]);
 	const [hotelId, setHotelId] = useState();
-	const [rooms, setRooms] = useState();
+	const [rooms, setRooms] = useState([]);
 	const { data, loading, error } = useFetch("/hotels");
 	const handleChange = (e) => {
 		setInfo((prev) => ({ ...prev, [e.target.id]: e.target.value }));
 	};
 
-	const handleClick = (e) => {
+	const handleClick = async (e) => {
 		e.preventDefault();
+		const roomNumbers = rooms.split(",").map((room) => ({ number: room }));
+		try {
+			await axios.post(`/rooms/${hotelId}`, { ...info, roomNumbers });
+		} catch (err) {
+			console.log(err);
+		}
 	};
 	return (
 		<div className="new  bg-[white] dark:bg-[#111] grid grid-cols-12 gap-5">
@@ -36,9 +43,10 @@ const NewRoom = () => {
 							<div className="formInput" key={input.id}>
 								<label>{input.label}</label>
 								<input
-									id={input.type}
+									id={input.id}
 									type={input.type}
 									placeholder={input.placeholder}
+									onChange={handleChange}
 								/>
 							</div>
 						))}
@@ -50,7 +58,9 @@ const NewRoom = () => {
 								cols="30"
 								rows="2"
 								className=" px-2 py-1 border-[1px] border-[lightgray] dark:bg-[transparent] rounded-md outline-none"
-								placeholders="Give Comma(,) between Room Numbers"></textarea>
+								placeholder="Give Comma(,) between Room Numbers"
+								onChange={(e) => setRooms(e.target.value)}
+							/>
 						</div>
 						<div className="formInput">
 							<label>Choose a Hotel</label>
